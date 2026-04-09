@@ -37,7 +37,7 @@ const services = [
     num: '06',
     title: 'Serralharia Geral',
     desc: 'Trabalhos à medida, reparações, soldadura e soluções metálicas personalizadas.',
-    img: 'https://images.unsplash.com/photo-1565462905408-e3e3c63ceab6?w=400&q=80',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
   },
 ]
 
@@ -58,9 +58,9 @@ function ServiceRow({ service, index, isLast }) {
         alignItems: 'center',
         gap: '32px',
         height: '88px',
-        borderTop: '1px solid rgba(255,255,255,0.08)',
-        borderBottom: isLast ? '1px solid rgba(255,255,255,0.08)' : 'none',
-        background: hovered ? 'rgba(255,255,255,0.025)' : 'transparent',
+        borderTop: '1px solid var(--color-text-08)',
+        borderBottom: isLast ? '1px solid var(--color-text-08)' : 'none',
+        background: hovered ? 'var(--color-row-hover)' : 'transparent',
         transition: 'background 0.3s ease',
         cursor: 'default',
         marginLeft: '-40px',
@@ -75,7 +75,7 @@ function ServiceRow({ service, index, isLast }) {
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: '12px',
           letterSpacing: '0.2em',
-          color: hovered ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.22)',
+          color: hovered ? 'var(--color-text-55)' : 'var(--color-text-22)',
           width: '32px',
           flexShrink: 0,
           transition: 'color 0.3s ease',
@@ -90,7 +90,7 @@ function ServiceRow({ service, index, isLast }) {
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'clamp(18px, 1.8vw, 24px)',
           letterSpacing: '0.08em',
-          color: hovered ? '#fff' : 'rgba(255,255,255,0.8)',
+          color: hovered ? 'var(--color-text)' : 'var(--color-text-60)',
           flex: 1,
           lineHeight: 1,
           transition: 'color 0.3s ease',
@@ -103,7 +103,7 @@ function ServiceRow({ service, index, isLast }) {
       {/* Description */}
       <p
         style={{
-          color: 'rgba(255,255,255,0.35)',
+          color: 'var(--color-text-35)',
           fontSize: '13px',
           lineHeight: 1.6,
           fontFamily: "'Inter', sans-serif",
@@ -155,7 +155,7 @@ export default function Services() {
           style={{ padding: '80px 0 40px' }}
         >
           <h2 className="section-title">Serviços</h2>
-          <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)', marginTop: '28px' }} />
+          <hr style={{ border: 'none', borderTop: '1px solid var(--color-text-08)', marginTop: '28px' }} />
         </motion.div>
 
         {/* Rows */}

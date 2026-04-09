@@ -8,7 +8,7 @@ const links = [
 ]
 
 const linkStyle = {
-  color: 'rgba(255,255,255,0.6)',
+  color: 'var(--color-text-60)',
   textDecoration: 'none',
   fontSize: '11px',
   letterSpacing: '0.18em',
@@ -40,9 +40,9 @@ export default function Navbar() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '0',
-        backgroundColor: 'rgba(8,8,8,0.92)',
+        backgroundColor: 'var(--color-nav-bg)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid var(--color-nav-border)',
         opacity: scrolled ? 1 : 0,
         pointerEvents: scrolled ? 'auto' : 'none',
         transition: 'opacity 0.5s ease',
@@ -64,8 +64,8 @@ export default function Navbar() {
               <a
                 href={link.href}
                 style={linkStyle}
-                onMouseEnter={(e) => (e.target.style.color = '#fff')}
-                onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.6)')}
+                onMouseEnter={(e) => (e.target.style.color = 'var(--color-text)')}
+                onMouseLeave={(e) => (e.target.style.color = 'var(--color-text-60)')}
               >
                 {link.label}
               </a>
@@ -76,9 +76,9 @@ export default function Navbar() {
         {/* Right: contact link */}
         <a
           href="tel:916641573"
-          style={{ ...linkStyle, color: 'rgba(255,255,255,0.4)' }}
-          onMouseEnter={(e) => (e.target.style.color = '#fff')}
-          onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.4)')}
+          style={{ ...linkStyle, color: 'var(--color-text-40)' }}
+          onMouseEnter={(e) => (e.target.style.color = 'var(--color-text)')}
+          onMouseLeave={(e) => (e.target.style.color = 'var(--color-text-40)')}
         >
           916 641 573
         </a>

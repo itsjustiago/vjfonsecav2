@@ -15,6 +15,45 @@
   --color-divider: rgba(255,255,255,0.12);
   --color-input-border: #333333;
   --color-input-focused: rgba(255,255,255,0.5);
+  /* utility vars for hardcoded alpha values */
+  --color-nav-bg: rgba(8,8,8,0.92);
+  --color-nav-border: rgba(255,255,255,0.06);
+  --color-footer-bg: #000;
+  --color-text-60: rgba(255,255,255,0.6);
+  --color-text-45: rgba(255,255,255,0.45);
+  --color-text-40: rgba(255,255,255,0.4);
+  --color-text-35: rgba(255,255,255,0.35);
+  --color-text-22: rgba(255,255,255,0.22);
+  --color-text-55: rgba(255,255,255,0.55);
+  --color-text-08: rgba(255,255,255,0.08);
+  --color-row-hover: rgba(255,255,255,0.025);
+  --color-copyright: rgba(255,255,255,0.18);
+}
+
+[data-theme="light"] {
+  --color-bg: #f5f4f0;
+  --color-surface: #eeede9;
+  --color-surface-alt: #eae9e4;
+  --color-border: #d0cfc9;
+  --color-text: #0f0f0f;
+  --color-muted: #555555;
+  --color-text-dim: rgba(0,0,0,0.35);
+  --color-icon: rgba(0,0,0,0.4);
+  --color-divider: rgba(0,0,0,0.15);
+  --color-input-border: #bbbbbb;
+  --color-input-focused: rgba(0,0,0,0.5);
+  --color-nav-bg: rgba(245,244,240,0.94);
+  --color-nav-border: rgba(0,0,0,0.08);
+  --color-footer-bg: #e0dfd9;
+  --color-text-60: rgba(0,0,0,0.6);
+  --color-text-45: rgba(0,0,0,0.45);
+  --color-text-40: rgba(0,0,0,0.4);
+  --color-text-35: rgba(0,0,0,0.35);
+  --color-text-22: rgba(0,0,0,0.22);
+  --color-text-55: rgba(0,0,0,0.55);
+  --color-text-08: rgba(0,0,0,0.08);
+  --color-row-hover: rgba(0,0,0,0.025);
+  --color-copyright: rgba(0,0,0,0.35);
 }
 
 
