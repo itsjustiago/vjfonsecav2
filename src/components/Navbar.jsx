@@ -7,11 +7,22 @@ const links = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
+const linkStyle = {
+  color: 'rgba(255,255,255,0.6)',
+  textDecoration: 'none',
+  fontSize: '11px',
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
+  fontWeight: 500,
+  transition: 'color 0.2s ease',
+  fontFamily: "'Inter', sans-serif",
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
+    const handleScroll = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -24,60 +35,42 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 100,
-        height: '70px',
+        height: '60px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 5vw',
-        backgroundColor: scrolled ? 'rgba(8,8,8,0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--color-border)' : 'none',
-        transition: 'all 0.3s ease',
+        padding: '0 3vw',
+        backgroundColor: scrolled ? 'rgba(8,8,8,0.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+        transition: 'all 0.4s ease',
       }}
     >
-      <a
-        href="#hero"
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: '22px',
-          letterSpacing: '0.1em',
-          color: 'var(--color-text)',
-          textDecoration: 'none',
-        }}
-      >
-        V&amp;J FONSECA
-      </a>
-
-      <ul
-        style={{
-          display: 'flex',
-          gap: '40px',
-          listStyle: 'none',
-          padding: 0,
-          margin: 0,
-        }}
-      >
+      {/* Left: nav links */}
+      <ul style={{ display: 'flex', gap: '32px', listStyle: 'none', padding: 0, margin: 0 }}>
         {links.map((link) => (
           <li key={link.href}>
             <a
               href={link.href}
-              style={{
-                color: 'var(--color-muted)',
-                textDecoration: 'none',
-                fontSize: '12px',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
-                transition: 'color 0.2s ease',
-              }}
-              onMouseEnter={(e) => (e.target.style.color = 'var(--color-text)')}
-              onMouseLeave={(e) => (e.target.style.color = 'var(--color-muted)')}
+              style={linkStyle}
+              onMouseEnter={(e) => (e.target.style.color = '#fff')}
+              onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.6)')}
             >
               {link.label}
             </a>
           </li>
         ))}
       </ul>
+
+      {/* Right: contact link */}
+      <a
+        href="tel:916641573"
+        style={{ ...linkStyle, color: 'rgba(255,255,255,0.4)' }}
+        onMouseEnter={(e) => (e.target.style.color = 'var(--color-accent)')}
+        onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.4)')}
+      >
+        916 641 573
+      </a>
     </nav>
   )
 }
