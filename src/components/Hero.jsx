@@ -1,16 +1,22 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
+const links = [
+  { label: 'Serviços', href: '#servicos' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Contacto', href: '#contacto' },
+]
+
 export default function Hero() {
   const line1Ref = useRef(null)
   const line2Ref = useRef(null)
 
-  // Fit text to full viewport width
   useEffect(() => {
     function fitText() {
       ;[
-        { ref: line1Ref, text: 'V&J' },
-        { ref: line2Ref, text: 'FONSECA' },
+        { ref: line1Ref },
+        { ref: line2Ref },
       ].forEach(({ ref }) => {
         const el = ref.current
         if (!el) return
@@ -34,7 +40,6 @@ export default function Hero() {
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
       }}
     >
       {/* Background image */}
@@ -46,24 +51,52 @@ export default function Hero() {
             'url(https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 30%',
-          filter: 'grayscale(60%) brightness(0.55)',
+          filter: 'grayscale(75%) brightness(0.4)',
         }}
       />
 
-      {/* Gradient — heavier at top and bottom, lighter in centre so image shows */}
+      {/* Gradient overlay */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.75) 100%)',
+            'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 25%, transparent 60%, rgba(0,0,0,0.85) 100%)',
         }}
       />
 
-      {/* ─── Top spacer for navbar ─── */}
-      <div style={{ height: '60px' }} />
+      {/* TOP ZONE — phone number */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          display: 'flex',
+          justifyContent: 'flex-end',
+          padding: '24px 3vw',
+        }}
+      >
+        <a
+          href="tel:916641573"
+          style={{
+            color: 'rgba(255,255,255,0.45)',
+            fontSize: '11px',
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            fontFamily: "'Inter', sans-serif",
+            textDecoration: 'none',
+            transition: 'color 0.2s ease',
+          }}
+          onMouseEnter={(e) => (e.target.style.color = '#fff')}
+          onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.45)')}
+        >
+          916 641 573
+        </a>
+      </motion.div>
 
-      {/* ─── TITLE — fills full width ─── */}
+      {/* TITLE ZONE */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -71,6 +104,10 @@ export default function Hero() {
         style={{
           position: 'relative',
           zIndex: 1,
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
           paddingLeft: '1vw',
           lineHeight: 0.88,
           userSelect: 'none',
@@ -104,18 +141,62 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* ─── Bottom bar ─── */}
+      {/* NAV ZONE */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          padding: '20px 3vw',
+        }}
+      >
+        <ul
+          style={{
+            display: 'flex',
+            gap: '48px',
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+          }}
+        >
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                style={{
+                  color: 'rgba(255,255,255,0.55)',
+                  textDecoration: 'none',
+                  fontSize: '11px',
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  fontFamily: "'Inter', sans-serif",
+                  transition: 'color 0.2s ease',
+                }}
+                onMouseEnter={(e) => (e.target.style.color = '#fff')}
+                onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.55)')}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+
+      {/* BOTTOM BAR */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.8, delay: 0.7 }}
         style={{
           position: 'relative',
           zIndex: 1,
           display: 'grid',
           gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'flex-end',
-          padding: '0 3vw 32px',
+          padding: '0 3vw 36px',
           gap: '20px',
         }}
       >
@@ -123,7 +204,7 @@ export default function Hero() {
         <div>
           <p
             style={{
-              color: 'rgba(255,255,255,0.55)',
+              color: 'rgba(255,255,255,0.45)',
               fontSize: '11px',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
@@ -139,14 +220,23 @@ export default function Hero() {
           <a
             href="#servicos"
             style={{
-              color: 'var(--color-accent)',
+              color: 'rgba(255,255,255,0.55)',
               fontSize: '11px',
               letterSpacing: '0.15em',
               textTransform: 'uppercase',
               fontFamily: "'Inter', sans-serif",
               textDecoration: 'none',
-              borderBottom: '1px solid var(--color-accent)',
+              borderBottom: '1px solid rgba(255,255,255,0.3)',
               paddingBottom: '1px',
+              transition: 'color 0.2s, border-color 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.color = '#fff'
+              e.target.style.borderBottomColor = '#fff'
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.color = 'rgba(255,255,255,0.55)'
+              e.target.style.borderBottomColor = 'rgba(255,255,255,0.3)'
             }}
           >
             Ver Serviços ›
@@ -192,7 +282,7 @@ export default function Hero() {
               marginBottom: '8px',
             }}
           >
-            Painéis Sandwich · Perfis Galvanizados
+            Painéis · Perfis · Estruturas
             <br />
             Coberturas Industriais
           </p>
@@ -205,11 +295,12 @@ export default function Hero() {
               textTransform: 'uppercase',
               fontFamily: "'Inter', sans-serif",
               textDecoration: 'none',
+              transition: 'color 0.2s',
             }}
             onMouseEnter={(e) => (e.target.style.color = '#fff')}
             onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.55)')}
           >
-            Ver Projeto ›
+            Ver Portfolio ›
           </a>
         </div>
       </motion.div>

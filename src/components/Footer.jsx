@@ -4,27 +4,33 @@ export default function Footer() {
       style={{
         background: '#000',
         borderTop: '1px solid var(--color-border)',
-        padding: '32px 8vw',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '16px',
+        padding: '32px 0',
       }}
     >
-      <span
+      <div
+        className="container"
         style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: '18px',
-          letterSpacing: '0.1em',
-          color: 'var(--color-text)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '16px',
         }}
       >
-        V&amp;J FONSECA
-      </span>
-      <p style={{ color: '#444', fontSize: '13px' }}>
-        © {new Date().getFullYear()} V&amp;J Fonseca. Todos os direitos reservados.
-      </p>
+        <span
+          style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 'clamp(20px, 2vw, 28px)',
+            letterSpacing: '0.15em',
+            color: 'var(--color-text)',
+          }}
+        >
+          V&amp;J FONSECA
+        </span>
+        <p style={{ color: 'rgba(255,255,255,0.18)', fontSize: '13px' }}>
+          © {new Date().getFullYear()} V&amp;J Fonseca. Todos os direitos reservados.
+        </p>
+      </div>
     </footer>
   )
 }

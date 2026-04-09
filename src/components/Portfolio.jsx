@@ -6,53 +6,62 @@ const projects = [
   {
     title: 'Cobertura Industrial',
     category: 'Painéis de Cobertura',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    span: 'col-span-2 row-span-2',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80',
+    col: '1',
+    row: 'span 2',
+    height: '552px',
   },
   {
     title: 'Fachada Comercial',
     category: 'Painéis de Fachada',
     img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
-    span: '',
+    col: '2',
+    row: '1',
+    height: '274px',
   },
   {
     title: 'Estrutura Metálica',
     category: 'Perfis Estruturais',
     img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
-    span: '',
+    col: '3',
+    row: '1',
+    height: '274px',
   },
   {
     title: 'Pavilhão Industrial',
     category: 'Painéis Sandwich',
     img: 'https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=600&q=80',
-    span: '',
+    col: '2',
+    row: '2',
+    height: '276px',
   },
   {
     title: 'Cobertura Residencial',
     category: 'Painéis de Cobertura',
-    img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
-    span: 'col-span-2',
+    img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80',
+    col: '3',
+    row: '2',
+    height: '276px',
   },
 ]
 
 function ProjectCard({ project, index }) {
   const [hovered, setHovered] = useState(false)
-  const [ref, inView] = useInView({ threshold: 0.1 })
+  const [ref, inView] = useInView({ threshold: 0.05 })
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.55, delay: index * 0.07 }}
       style={{
         position: 'relative',
         overflow: 'hidden',
         cursor: 'pointer',
-        aspectRatio: project.span.includes('row-span-2') ? 'auto' : '4/3',
-        gridColumn: project.span.includes('col-span-2') ? 'span 2' : 'span 1',
-        gridRow: project.span.includes('row-span-2') ? 'span 2' : 'span 1',
-        minHeight: project.span.includes('row-span-2') ? '400px' : '220px',
+        gridColumn: project.col,
+        gridRow: project.row,
+        height: project.height,
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -64,30 +73,31 @@ function ProjectCard({ project, index }) {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          filter: 'grayscale(20%)',
-          transform: hovered ? 'scale(1.06)' : 'scale(1)',
-          transition: 'transform 0.5s ease',
+          filter: hovered ? 'grayscale(20%) brightness(0.65)' : 'grayscale(50%) brightness(0.55)',
+          transform: hovered ? 'scale(1.05)' : 'scale(1)',
+          transition: 'transform 0.6s ease, filter 0.5s ease',
         }}
       />
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: hovered ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0.2)',
+          background: hovered ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0.15)',
           transition: 'background 0.4s ease',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
-          padding: '28px',
+          padding: '24px',
         }}
       >
         <p
           style={{
-            color: 'var(--color-accent)',
-            fontSize: '11px',
-            letterSpacing: '0.2em',
+            color: 'rgba(255,255,255,0.5)',
+            fontSize: '10px',
+            letterSpacing: '0.22em',
             textTransform: 'uppercase',
-            marginBottom: '6px',
+            marginBottom: '5px',
+            fontFamily: "'Inter', sans-serif",
             opacity: hovered ? 1 : 0,
             transform: hovered ? 'translateY(0)' : 'translateY(8px)',
             transition: 'all 0.3s ease',
@@ -98,12 +108,13 @@ function ProjectCard({ project, index }) {
         <h3
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '24px',
+            fontSize: 'clamp(18px, 1.8vw, 26px)',
             letterSpacing: '0.08em',
             color: '#fff',
+            lineHeight: 1,
             opacity: hovered ? 1 : 0,
             transform: hovered ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 0.3s ease 0.05s',
+            transition: 'all 0.3s ease 0.04s',
           }}
         >
           {project.title}
@@ -117,44 +128,35 @@ export default function Portfolio() {
   const [ref, inView] = useInView({ threshold: 0.1 })
 
   return (
-    <section
-      id="portfolio"
-      style={{
-        background: '#0a0a0a',
-        padding: '120px 8vw',
-      }}
-    >
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        style={{ marginBottom: '64px' }}
-      >
-        <h2 className="section-title">Projetos</h2>
-        <p
-          style={{
-            color: 'var(--color-muted)',
-            fontSize: '16px',
-            marginTop: '20px',
-            maxWidth: '480px',
-          }}
+    <section id="portfolio" style={{ background: 'var(--color-surface-alt)' }}>
+      {/* Title zone — container-constrained */}
+      <div className="container">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          style={{ padding: '80px 0 40px' }}
         >
-          Alguns dos trabalhos que realizámos ao longo dos anos.
-        </p>
-      </motion.div>
+          <h2 className="section-title">Projetos</h2>
+        </motion.div>
+      </div>
 
+      {/* Full-bleed asymmetric grid */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '8px',
+          gridTemplateColumns: '5fr 3fr 4fr',
+          gridTemplateRows: 'auto auto',
+          gap: '2px',
         }}
       >
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}
       </div>
+
+      <div style={{ height: '80px' }} />
     </section>
   )
 }

@@ -12,14 +12,8 @@ export default function About() {
   const [imgRef, imgInView] = useInView({ threshold: 0.15 })
 
   return (
-    <section
-      id="sobre"
-      style={{
-        background: 'var(--color-bg)',
-        padding: '120px 8vw',
-      }}
-    >
-      <div
+    <section id="sobre" style={{ background: 'var(--color-bg)', padding: '80px 0' }}>
+      <div className="container"><div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
@@ -36,25 +30,14 @@ export default function About() {
           style={{ position: 'relative' }}
         >
           <img
-            src="https://images.unsplash.com/photo-1565462905408-e3e3c63ceab6?w=800&q=80"
+            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80"
             alt="Oficina V&J Fonseca"
             style={{
               width: '100%',
               aspectRatio: '4/5',
               objectFit: 'cover',
-              filter: 'grayscale(15%)',
-            }}
-          />
-          {/* Accent border decoration */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-20px',
-              right: '-20px',
-              width: '60%',
-              height: '40%',
-              border: '1px solid var(--color-accent)',
-              zIndex: -1,
+              filter: 'grayscale(35%)',
+              display: 'block',
             }}
           />
         </motion.div>
@@ -111,7 +94,7 @@ export default function About() {
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
                     fontSize: '48px',
-                    color: 'var(--color-accent)',
+                    color: 'var(--color-text)',
                     lineHeight: 1,
                     marginBottom: '6px',
                   }}
@@ -132,7 +115,7 @@ export default function About() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </div></div>
     </section>
   )
 }

@@ -6,7 +6,7 @@ const inputStyle = {
   width: '100%',
   background: 'transparent',
   border: 'none',
-  borderBottom: '1px solid #333',
+  borderBottom: '1px solid var(--color-input-border)',
   padding: '14px 0',
   color: 'var(--color-text)',
   fontSize: '15px',
@@ -20,13 +20,8 @@ export default function Contact() {
   const [focused, setFocused] = useState(null)
 
   return (
-    <section
-      id="contacto"
-      style={{
-        background: 'var(--color-surface)',
-        padding: '120px 8vw',
-      }}
-    >
+    <section id="contacto" style={{ background: 'var(--color-surface-alt)', padding: '80px 0' }}>
+      <div className="container">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
@@ -66,7 +61,7 @@ export default function Contact() {
             <div>
               <p
                 style={{
-                  color: 'var(--color-accent)',
+                  color: 'var(--color-text-dim)',
                   fontSize: '10px',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
@@ -86,7 +81,7 @@ export default function Contact() {
             <div>
               <p
                 style={{
-                  color: 'var(--color-accent)',
+                  color: 'var(--color-text-dim)',
                   fontSize: '10px',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
@@ -103,7 +98,7 @@ export default function Contact() {
                   textDecoration: 'none',
                   transition: 'color 0.2s',
                 }}
-                onMouseEnter={(e) => (e.target.style.color = 'var(--color-accent)')}
+                onMouseEnter={(e) => (e.target.style.color = 'rgba(255,255,255,0.7)')}
                 onMouseLeave={(e) => (e.target.style.color = 'var(--color-text)')}
               >
                 jf@vjfonseca.com
@@ -113,7 +108,7 @@ export default function Contact() {
             <div>
               <p
                 style={{
-                  color: 'var(--color-accent)',
+                  color: 'var(--color-text-dim)',
                   fontSize: '10px',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
@@ -155,7 +150,7 @@ export default function Contact() {
               placeholder="O seu nome"
               style={{
                 ...inputStyle,
-                borderBottomColor: focused === 'nome' ? 'var(--color-accent)' : '#333',
+                borderBottomColor: focused === 'nome' ? 'var(--color-text)' : 'var(--color-input-border)',
               }}
               onFocus={() => setFocused('nome')}
               onBlur={() => setFocused(null)}
@@ -180,7 +175,7 @@ export default function Contact() {
               placeholder="email@exemplo.com"
               style={{
                 ...inputStyle,
-                borderBottomColor: focused === 'email' ? 'var(--color-accent)' : '#333',
+                borderBottomColor: focused === 'email' ? 'var(--color-text)' : 'var(--color-input-border)',
               }}
               onFocus={() => setFocused('email')}
               onBlur={() => setFocused(null)}
@@ -206,7 +201,7 @@ export default function Contact() {
               style={{
                 ...inputStyle,
                 resize: 'none',
-                borderBottomColor: focused === 'msg' ? 'var(--color-accent)' : '#333',
+                borderBottomColor: focused === 'msg' ? 'var(--color-text)' : 'var(--color-input-border)',
               }}
               onFocus={() => setFocused('msg')}
               onBlur={() => setFocused(null)}
@@ -214,11 +209,12 @@ export default function Contact() {
           </div>
 
           <div>
-            <button type="submit" className="btn-accent">
+            <button type="submit" className="btn-outline">
               Enviar Mensagem ›
             </button>
           </div>
         </motion.form>
+      </div>
       </div>
     </section>
   )
