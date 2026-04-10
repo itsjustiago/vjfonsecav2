@@ -98,7 +98,7 @@ export default function Contact() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '80px',
+          gap: '48px',
         }}
       >
         {/* Contact info table */}
