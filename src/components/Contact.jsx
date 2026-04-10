@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { useState } from 'react'
+import SectionBadge from './SectionBadge'
 
 const inputStyle = {
   width: '100%',
@@ -29,6 +30,7 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         style={{ marginBottom: '64px' }}
       >
+        <SectionBadge label="Contacto" />
         <h2 className="section-title">Contacto</h2>
       </motion.div>
 

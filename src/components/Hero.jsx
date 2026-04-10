@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const links = [
@@ -8,28 +7,9 @@ const links = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
+const font = "Helvetica, 'Helvetica Neue', Arial, sans-serif"
+
 export default function Hero() {
-  const line1Ref = useRef(null)
-  const line2Ref = useRef(null)
-
-  useEffect(() => {
-    function fitText() {
-      ;[
-        { ref: line1Ref },
-        { ref: line2Ref },
-      ].forEach(({ ref }) => {
-        const el = ref.current
-        if (!el) return
-        el.style.fontSize = '100px'
-        const ratio = (window.innerWidth * 0.98) / el.scrollWidth
-        el.style.fontSize = Math.floor(100 * ratio) + 'px'
-      })
-    }
-    fitText()
-    window.addEventListener('resize', fitText)
-    return () => window.removeEventListener('resize', fitText)
-  }, [])
-
   return (
     <section
       id="hero"
@@ -85,7 +65,7 @@ export default function Hero() {
             fontSize: '11px',
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: font,
             textDecoration: 'none',
             transition: 'color 0.2s ease',
           }}
@@ -96,50 +76,8 @@ export default function Hero() {
         </a>
       </motion.div>
 
-      {/* TITLE ZONE */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          paddingLeft: '1vw',
-          lineHeight: 0.88,
-          userSelect: 'none',
-        }}
-      >
-        <div
-          ref={line1Ref}
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '100px',
-            letterSpacing: '0.01em',
-            color: '#fff',
-            whiteSpace: 'nowrap',
-            display: 'block',
-          }}
-        >
-          V&amp;J
-        </div>
-        <div
-          ref={line2Ref}
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '100px',
-            letterSpacing: '0.01em',
-            color: '#fff',
-            whiteSpace: 'nowrap',
-            display: 'block',
-          }}
-        >
-          FONSECA
-        </div>
-      </motion.div>
+      {/* SPACER */}
+      <div style={{ flex: 1 }} />
 
       {/* NAV ZONE */}
       <motion.div
@@ -172,7 +110,7 @@ export default function Hero() {
                   letterSpacing: '0.18em',
                   textTransform: 'uppercase',
                   fontWeight: 500,
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: font,
                   transition: 'color 0.2s ease',
                 }}
                 onMouseEnter={(e) => (e.target.style.color = '#fff')}
@@ -194,114 +132,97 @@ export default function Hero() {
           position: 'relative',
           zIndex: 1,
           display: 'grid',
-          gridTemplateColumns: '1fr auto 1fr',
+          gridTemplateColumns: '1fr 1fr',
           alignItems: 'flex-end',
           padding: '0 3vw 36px',
           gap: '20px',
         }}
       >
-        {/* Left */}
+        {/* Left — título */}
         <div>
-          <p
+          <div
             style={{
-              color: 'rgba(255,255,255,0.45)',
-              fontSize: '11px',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              fontFamily: "'Inter', sans-serif",
-              lineHeight: 1.7,
-              marginBottom: '10px',
+              fontFamily: font,
+              fontWeight: 700,
+              fontSize: 'clamp(80px, 22vh, 320px)',
+              color: '#fff',
+              lineHeight: 0.9,
+              letterSpacing: '-0.01em',
+              userSelect: 'none',
             }}
           >
-            Serralharia &amp; Construção Metálica
+            V&amp;J
             <br />
-            Perfis, Painéis e Estruturas
-          </p>
-          <a
-            href="#servicos"
-            style={{
-              color: 'rgba(255,255,255,0.55)',
-              fontSize: '11px',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              fontFamily: "'Inter', sans-serif",
-              textDecoration: 'none',
-              borderBottom: '1px solid rgba(255,255,255,0.3)',
-              paddingBottom: '1px',
-              transition: 'color 0.2s, border-color 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.color = '#fff'
-              e.target.style.borderBottomColor = '#fff'
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.color = 'rgba(255,255,255,0.55)'
-              e.target.style.borderBottomColor = 'rgba(255,255,255,0.3)'
-            }}
-          >
-            Ver Serviços ›
-          </a>
+            FONSECA
+          </div>
         </div>
 
-        {/* Centre — scroll */}
+        {/* Right — antigo direito em cima, antigo esquerdo em baixo */}
         <div
           style={{
+            textAlign: 'right',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            gap: '10px',
+            gap: '16px',
           }}
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-            style={{ width: '1px', height: '44px', background: 'rgba(255,255,255,0.3)' }}
-          />
-          <p
-            style={{
-              color: 'rgba(255,255,255,0.35)',
-              fontSize: '9px',
-              letterSpacing: '0.25em',
-              textTransform: 'uppercase',
-              fontFamily: "'Inter', sans-serif",
-            }}
-          >
-            SCROLL
-          </p>
-        </div>
-
-        {/* Right */}
-        <div style={{ textAlign: 'right' }}>
+          {/* antigo direito */}
           <p
             style={{
               color: 'rgba(255,255,255,0.35)',
               fontSize: '10px',
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              fontFamily: "'Inter', sans-serif",
-              marginBottom: '8px',
+              fontFamily: font,
             }}
           >
             Painéis · Perfis · Estruturas
             <br />
             Coberturas Industriais
           </p>
-          <a
-            href="#portfolio"
-            style={{
-              color: 'rgba(255,255,255,0.55)',
-              fontSize: '11px',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              fontFamily: "'Inter', sans-serif",
-              textDecoration: 'none',
-              transition: 'color 0.2s',
-            }}
-            onMouseEnter={(e) => (e.target.style.color = '#fff')}
-            onMouseLeave={(e) => (e.target.style.color = 'rgba(255,255,255,0.55)')}
-          >
-            Ver Portfolio ›
-          </a>
+
+          {/* antigo esquerdo */}
+          <div>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.45)',
+                fontSize: '11px',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                fontFamily: font,
+                lineHeight: 1.7,
+                marginBottom: '10px',
+              }}
+            >
+              Serralharia &amp; Construção Metálica
+              <br />
+              Perfis, Painéis e Estruturas
+            </p>
+            <a
+              href="#servicos"
+              style={{
+                color: 'rgba(255,255,255,0.55)',
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                fontFamily: font,
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(255,255,255,0.3)',
+                paddingBottom: '1px',
+                transition: 'color 0.2s, border-color 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#fff'
+                e.target.style.borderBottomColor = '#fff'
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = 'rgba(255,255,255,0.55)'
+                e.target.style.borderBottomColor = 'rgba(255,255,255,0.3)'
+              }}
+            >
+              Ver Serviços ›
+            </a>
+          </div>
         </div>
       </motion.div>
     </section>

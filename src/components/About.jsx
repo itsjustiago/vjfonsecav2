@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
+import SectionBadge from './SectionBadge'
 
 const stats = [
   { value: '25+', label: 'Anos de Experiência' },
@@ -49,6 +50,7 @@ export default function About() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
+          <SectionBadge label="Sobre Nós" />
           <h2 className="section-title">Sobre Nós</h2>
 
           <p

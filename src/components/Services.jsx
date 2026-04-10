@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
+import SectionBadge from './SectionBadge'
 
 const services = [
   {
@@ -154,6 +155,7 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           style={{ padding: '80px 0 40px' }}
         >
+          <SectionBadge label="Serviços" />
           <h2 className="section-title">Serviços</h2>
           <hr style={{ border: 'none', borderTop: '1px solid var(--color-text-08)', marginTop: '28px' }} />
         </motion.div>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 import { useState } from 'react'
+import SectionBadge from './SectionBadge'
 
 const projects = [
   {
@@ -180,6 +181,7 @@ export default function Portfolio() {
           transition={{ duration: 0.5 }}
           style={{ padding: '80px 0 40px' }}
         >
+          <SectionBadge label="Portfolio" />
           <h2 className="section-title">Projetos</h2>
         </motion.div>
       </div>
