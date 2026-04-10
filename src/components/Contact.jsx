@@ -16,6 +16,66 @@ const inputStyle = {
   transition: 'border-color 0.3s ease',
 }
 
+const TABLE_GRID = '48px 160px 1fr'
+
+const contactRows = [
+  { num: '01', label: 'Telefone', value: '916 641 573 / 263 079 366' },
+  { num: '02', label: 'Email',    value: 'jf@vjfonseca.com', isEmail: true },
+  { num: '03', label: 'Localização', value: 'Portugal' },
+]
+
+function ContactRow({ row, index, isLast }) {
+  const border = isLast ? 'none' : '1px solid var(--color-border)'
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: TABLE_GRID,
+        alignItems: 'center',
+        borderBottom: border,
+      }}
+    >
+      <span
+        style={{
+          padding: '20px 24px',
+          fontFamily: 'Helvetica, sans-serif',
+          fontSize: '11px',
+          letterSpacing: '0.18em',
+          color: 'var(--color-muted)',
+        }}
+      >
+        {row.num}
+      </span>
+      <span
+        style={{
+          padding: '20px 24px',
+          fontFamily: 'Helvetica, sans-serif',
+          fontSize: '15px',
+          fontWeight: 700,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          color: 'var(--color-text)',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {row.label}
+      </span>
+      <span style={{ padding: '20px 24px', fontSize: '13px', lineHeight: 1.65, color: 'var(--color-muted)' }}>
+        {row.isEmail ? (
+          <a
+            href={`mailto:${row.value}`}
+            style={{ color: 'var(--color-muted)', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => (e.target.style.color = 'var(--color-text)')}
+            onMouseLeave={(e) => (e.target.style.color = 'var(--color-muted)')}
+          >
+            {row.value}
+          </a>
+        ) : row.value}
+      </span>
+    </div>
+  )
+}
+
 export default function Contact() {
   const [ref, inView] = useInView({ threshold: 0.1 })
   const [focused, setFocused] = useState(null)
