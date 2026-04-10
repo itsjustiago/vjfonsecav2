@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
-import { useState } from 'react'
 import SectionBadge from './SectionBadge'
 
 const projects = [
