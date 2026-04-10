@@ -130,6 +130,8 @@ export default function Services() {
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0 8px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)',
+            position: 'relative',
+            zIndex: 1,
           }}>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
