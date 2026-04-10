@@ -54,13 +54,10 @@ function ReviewCard({ review }) {
     }}>
       <p style={{
         color: 'var(--color-text-60)',
-        fontSize: '14px',
-        lineHeight: '1.75',
+        fontSize: '13px',
+        lineHeight: '1.7',
         flex: 1,
         overflow: 'hidden',
-        display: '-webkit-box',
-        WebkitLineClamp: 3,
-        WebkitBoxOrient: 'vertical',
       }}>
         "{review.text}"
       </p>
