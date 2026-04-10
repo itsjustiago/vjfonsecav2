@@ -149,12 +149,28 @@ h1, h2, h3 {
   font-weight: 500;
   cursor: pointer;
   background: transparent;
-  transition: all 0.3s ease;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.35s ease;
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-text);
+  transform: translateY(102%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-outline:hover::before {
+  transform: translateY(0);
 }
 
 .btn-outline:hover {
-  background: var(--color-text);
   color: var(--color-bg);
 }
 
