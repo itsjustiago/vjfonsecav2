@@ -89,7 +89,6 @@ const projects = [
 ]
 
 function ProjectCard({ project, index }) {
-  const [hovered, setHovered] = useState(false)
   const [ref, inView] = useInView({ threshold: 0.05 })
 
   return (
@@ -98,68 +97,23 @@ function ProjectCard({ project, index }) {
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 0.55, delay: index * 0.07 }}
+      className="project-card"
       style={{
-        position: 'relative',
-        overflow: 'hidden',
-        cursor: 'pointer',
         gridColumn: project.col,
         gridRow: project.row,
         height: project.height,
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <img
         src={project.img}
         alt={project.title}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          filter: hovered ? 'grayscale(20%) brightness(0.65)' : 'grayscale(50%) brightness(0.55)',
-          transform: hovered ? 'scale(1.05)' : 'scale(1)',
-          transition: 'transform 0.6s ease, filter 0.5s ease',
-        }}
+        loading={index < 3 ? 'eager' : 'lazy'}
       />
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: hovered ? 'rgba(0,0,0,0.55)' : 'rgba(0,0,0,0.15)',
-          transition: 'background 0.4s ease',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-          padding: '24px',
-        }}
-      >
-        <p
-          style={{
-            color: 'rgba(255,255,255,0.5)',
-            fontSize: '10px',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            marginBottom: '5px',
-            fontFamily: "'Inter', sans-serif",
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 0.3s ease',
-          }}
-        >
+      <div className="card-overlay">
+        <p className="card-category" style={{ fontFamily: "'Inter', sans-serif" }}>
           {project.category}
         </p>
-        <h3
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: 'clamp(18px, 1.8vw, 26px)',
-            letterSpacing: '0.08em',
-            color: '#fff',
-            lineHeight: 1,
-            opacity: hovered ? 1 : 0,
-            transform: hovered ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 0.3s ease 0.04s',
-          }}
-        >
+        <h3 className="card-title" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           {project.title}
         </h3>
       </div>
