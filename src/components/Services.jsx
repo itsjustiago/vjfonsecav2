@@ -42,7 +42,6 @@ const services = [
 ]
 
 function ServiceRow({ service, index, isLast }) {
-  const [hovered, setHovered] = useState(false)
   const [ref, inView] = useInView({ threshold: 0.1 })
 
   return (
@@ -51,8 +50,7 @@ function ServiceRow({ service, index, isLast }) {
       initial={{ opacity: 0, y: 12 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.45, delay: index * 0.06 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="service-row"
       style={{
         display: 'flex',
         alignItems: 'center',
@@ -60,8 +58,7 @@ function ServiceRow({ service, index, isLast }) {
         height: '88px',
         borderTop: '1px solid var(--color-text-08)',
         borderBottom: isLast ? '1px solid var(--color-text-08)' : 'none',
-        background: hovered ? 'var(--color-row-hover)' : 'transparent',
-        transition: 'background 0.3s ease',
+        background: 'transparent',
         cursor: 'default',
         marginLeft: '-40px',
         marginRight: '-40px',
@@ -69,38 +66,33 @@ function ServiceRow({ service, index, isLast }) {
         paddingRight: '40px',
       }}
     >
-      {/* Number */}
       <span
+        className="service-num"
         style={{
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: '12px',
           letterSpacing: '0.2em',
-          color: hovered ? 'var(--color-text-55)' : 'var(--color-text-22)',
           width: '32px',
           flexShrink: 0,
-          transition: 'color 0.3s ease',
         }}
       >
         {service.num}
       </span>
 
-      {/* Title */}
       <h3
+        className="service-title"
         style={{
           fontFamily: "'Bebas Neue', sans-serif",
           fontSize: 'clamp(18px, 1.8vw, 24px)',
           letterSpacing: '0.08em',
-          color: hovered ? 'var(--color-text)' : 'var(--color-text-60)',
           flex: 1,
           lineHeight: 1,
-          transition: 'color 0.3s ease',
           whiteSpace: 'nowrap',
         }}
       >
         {service.title}
       </h3>
 
-      {/* Description */}
       <p
         style={{
           color: 'var(--color-text-35)',
@@ -114,26 +106,12 @@ function ServiceRow({ service, index, isLast }) {
         {service.desc}
       </p>
 
-      {/* Small image */}
-      <div
-        style={{
-          width: '160px',
-          height: '72px',
-          flexShrink: 0,
-          overflow: 'hidden',
-        }}
-      >
+      <div style={{ width: '160px', height: '72px', flexShrink: 0, overflow: 'hidden' }}>
         <img
+          className="service-img"
           src={service.img}
           alt={service.title}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            filter: hovered ? 'grayscale(20%) brightness(0.75)' : 'grayscale(55%) brightness(0.5)',
-            transform: hovered ? 'scale(1.06)' : 'scale(1)',
-            transition: 'filter 0.4s ease, transform 0.5s ease',
-          }}
+          loading="lazy"
         />
       </div>
     </motion.div>
