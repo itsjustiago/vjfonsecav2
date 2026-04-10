@@ -57,6 +57,10 @@ function ReviewCard({ review }) {
         fontSize: '14px',
         lineHeight: '1.75',
         flex: 1,
+        overflow: 'hidden',
+        display: '-webkit-box',
+        WebkitLineClamp: 3,
+        WebkitBoxOrient: 'vertical',
       }}>
         "{review.text}"
       </p>
