@@ -43,6 +43,48 @@ const projects = [
     row: '2',
     height: '276px',
   },
+  // Row 3 — large right + small left
+  {
+    title: 'Nave Logística',
+    category: 'Construção Metálica',
+    img: 'https://images.unsplash.com/photo-1553260168-69b041873e65?w=600&q=80',
+    col: '1',
+    row: '3',
+    height: '320px',
+  },
+  {
+    title: 'Revestimento Exterior',
+    category: 'Painéis de Fachada',
+    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
+    col: '2 / span 2',
+    row: '3',
+    height: '320px',
+  },
+  // Row 4 — three equal
+  {
+    title: 'Armazém Frigorífico',
+    category: 'Painéis Isotérmicos',
+    img: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&q=80',
+    col: '1',
+    row: '4',
+    height: '280px',
+  },
+  {
+    title: 'Edifício de Escritórios',
+    category: 'Painéis de Fachada',
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80',
+    col: '2',
+    row: '4',
+    height: '280px',
+  },
+  {
+    title: 'Estrutura Agrícola',
+    category: 'Coberturas Agrícolas',
+    img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80',
+    col: '3',
+    row: '4',
+    height: '280px',
+  },
 ]
 
 function ProjectCard({ project, index }) {
