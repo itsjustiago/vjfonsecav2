@@ -196,6 +196,24 @@ h1, h2, h3 {
   background: var(--color-accent-dk);
 }
 
+/* ── Marquee ticker ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
 /* ── Portfolio card hover (CSS-only, no React re-renders) ── */
 .project-card {
   position: relative;
