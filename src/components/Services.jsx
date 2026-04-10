@@ -41,8 +41,9 @@ const services = [
   },
 ]
 
-function ServiceRow({ service, index }) {
+function ServiceRow({ service, index, isLast }) {
   const [ref, inView] = useInView({ threshold: 0.1 })
+  const border = isLast ? 'none' : '1px solid var(--color-border)'
 
   return (
     <motion.tr
@@ -59,7 +60,7 @@ function ServiceRow({ service, index }) {
         letterSpacing: '0.18em',
         color: 'var(--color-accent)',
         whiteSpace: 'nowrap',
-        borderBottom: '1px solid var(--color-border)',
+        borderBottom: border,
         width: '48px',
       }}>
         {service.num}
@@ -73,7 +74,7 @@ function ServiceRow({ service, index }) {
         textTransform: 'uppercase',
         color: 'var(--color-text)',
         whiteSpace: 'nowrap',
-        borderBottom: '1px solid var(--color-border)',
+        borderBottom: border,
       }}>
         {service.title}
       </td>
@@ -82,17 +83,17 @@ function ServiceRow({ service, index }) {
         fontSize: '13px',
         lineHeight: 1.65,
         color: 'var(--color-muted)',
-        borderBottom: '1px solid var(--color-border)',
+        borderBottom: border,
         width: '100%',
       }}>
         {service.desc}
       </td>
       <td style={{
         padding: '12px 24px',
-        borderBottom: '1px solid var(--color-border)',
+        borderBottom: border,
         width: '140px',
       }}>
-        <div style={{ width: '120px', height: '64px', overflow: 'hidden' }}>
+        <div style={{ width: '120px', height: '64px', overflow: 'hidden', borderRadius: '4px' }}>
           <img
             className="service-img"
             src={service.img}
