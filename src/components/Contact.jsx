@@ -3,7 +3,7 @@ import { useInView } from '../hooks/useInView'
 import { useState } from 'react'
 import SectionBadge from './SectionBadge'
 
-const TABLE_GRID = '48px 140px 1fr'
+const TABLE_GRID = '48px 180px 1fr'
 
 const tableContainer = {
   background: 'var(--color-surface)',
@@ -11,16 +11,6 @@ const tableContainer = {
   borderRadius: '12px',
   overflow: 'hidden',
   boxShadow: '0 8px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)',
-}
-
-const headerCell = {
-  padding: '14px 24px',
-  fontSize: '10px',
-  letterSpacing: '0.2em',
-  textTransform: 'uppercase',
-  color: 'var(--color-muted)',
-  fontWeight: 500,
-  fontFamily: 'Helvetica, sans-serif',
 }
 
 const numStyle = {
@@ -55,21 +45,6 @@ const inputStyle = {
   transition: 'border-color 0.3s ease',
 }
 
-function TableHeader({ cols }) {
-  return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: TABLE_GRID,
-      background: 'var(--color-surface-alt)',
-      borderBottom: '1px solid var(--color-border)',
-    }}>
-      {cols.map((label) => (
-        <span key={label} style={headerCell}>{label}</span>
-      ))}
-    </div>
-  )
-}
-
 function TableRow({ num, label, children, isLast, alignTop }) {
   return (
     <div style={{
@@ -81,6 +56,30 @@ function TableRow({ num, label, children, isLast, alignTop }) {
       <span style={{ ...numStyle, ...(alignTop ? { paddingTop: '24px' } : {}) }}>{num}</span>
       <span style={{ ...labelStyle, ...(alignTop ? { paddingTop: '24px' } : {}) }}>{label}</span>
       <span style={{ padding: alignTop ? '12px 24px' : '20px 24px' }}>{children}</span>
+    </div>
+  )
+}
+
+function SectionDivider({ label }) {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: TABLE_GRID,
+      background: 'var(--color-surface-alt)',
+      borderTop: '1px solid var(--color-border)',
+      borderBottom: '1px solid var(--color-border)',
+    }}>
+      <span />
+      <span style={{
+        gridColumn: '1 / -1',
+        padding: '12px 24px',
+        fontSize: '10px',
+        letterSpacing: '0.2em',
+        textTransform: 'uppercase',
+        color: 'var(--color-muted)',
+        fontWeight: 500,
+        fontFamily: 'Helvetica, sans-serif',
+      }}>{label}</span>
     </div>
   )
 }
@@ -103,21 +102,36 @@ export default function Contact() {
           <h2 className="section-title">Contacto</h2>
         </motion.div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '48px',
-          paddingBottom: '80px',
-        }}>
-          {/* Contact info table */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          style={{ paddingBottom: '80px' }}
+        >
+          <form onSubmit={(e) => e.preventDefault()}>
             <div style={tableContainer}>
-              <TableHeader cols={['#', 'Tipo', 'Detalhe']} />
 
+              {/* Table header */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: TABLE_GRID,
+                background: 'var(--color-surface-alt)',
+                borderBottom: '1px solid var(--color-border)',
+              }}>
+                {['#', 'Campo', 'Detalhe'].map((label) => (
+                  <span key={label} style={{
+                    padding: '14px 24px',
+                    fontSize: '10px',
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'var(--color-muted)',
+                    fontWeight: 500,
+                    fontFamily: 'Helvetica, sans-serif',
+                  }}>{label}</span>
+                ))}
+              </div>
+
+              {/* Contact info */}
               <TableRow num="01" label="Telefone">
                 <span style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.65 }}>
                   916 641 573 &nbsp;/&nbsp; 263 079 366
@@ -135,82 +149,76 @@ export default function Contact() {
                 </a>
               </TableRow>
 
-              <TableRow num="03" label="Localização" isLast>
+              <TableRow num="03" label="Localização">
                 <span style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.65 }}>
                   Portugal
                 </span>
               </TableRow>
-            </div>
-          </motion.div>
 
-          {/* Form table */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div style={tableContainer}>
-                <TableHeader cols={['#', 'Campo', '']} />
+              {/* Divider */}
+              <SectionDivider label="Formulário de Contacto" />
 
-                <TableRow num="01" label="Nome">
-                  <input
-                    type="text"
-                    placeholder="O seu nome"
-                    style={{
-                      ...inputStyle,
-                      borderBottomColor: focused === 'nome' ? 'var(--color-text)' : 'var(--color-input-border)',
-                    }}
-                    onFocus={() => setFocused('nome')}
-                    onBlur={() => setFocused(null)}
-                  />
-                </TableRow>
+              {/* Form fields */}
+              <TableRow num="04" label="Nome">
+                <input
+                  type="text"
+                  placeholder="O seu nome"
+                  style={{
+                    ...inputStyle,
+                    borderBottomColor: focused === 'nome' ? 'var(--color-text)' : 'var(--color-input-border)',
+                  }}
+                  onFocus={() => setFocused('nome')}
+                  onBlur={() => setFocused(null)}
+                />
+              </TableRow>
 
-                <TableRow num="02" label="Email">
-                  <input
-                    type="email"
-                    placeholder="email@exemplo.com"
-                    style={{
-                      ...inputStyle,
-                      borderBottomColor: focused === 'email' ? 'var(--color-text)' : 'var(--color-input-border)',
-                    }}
-                    onFocus={() => setFocused('email')}
-                    onBlur={() => setFocused(null)}
-                  />
-                </TableRow>
+              <TableRow num="05" label="Email">
+                <input
+                  type="email"
+                  placeholder="email@exemplo.com"
+                  style={{
+                    ...inputStyle,
+                    borderBottomColor: focused === 'email' ? 'var(--color-text)' : 'var(--color-input-border)',
+                  }}
+                  onFocus={() => setFocused('email')}
+                  onBlur={() => setFocused(null)}
+                />
+              </TableRow>
 
-                <TableRow num="03" label="Mensagem" alignTop>
-                  <textarea
-                    rows={4}
-                    placeholder="Como podemos ajudar?"
-                    style={{
-                      ...inputStyle,
-                      resize: 'none',
-                      borderBottomColor: focused === 'msg' ? 'var(--color-text)' : 'var(--color-input-border)',
-                    }}
-                    onFocus={() => setFocused('msg')}
-                    onBlur={() => setFocused(null)}
-                  />
-                </TableRow>
+              <TableRow num="06" label="Mensagem" alignTop>
+                <textarea
+                  rows={4}
+                  placeholder="Como podemos ajudar?"
+                  style={{
+                    ...inputStyle,
+                    resize: 'none',
+                    borderBottomColor: focused === 'msg' ? 'var(--color-text)' : 'var(--color-input-border)',
+                  }}
+                  onFocus={() => setFocused('msg')}
+                  onBlur={() => setFocused(null)}
+                />
+              </TableRow>
 
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: TABLE_GRID,
-                  background: 'var(--color-surface-alt)',
-                  borderTop: '1px solid var(--color-border)',
-                }}>
-                  <span style={numStyle} />
-                  <span style={numStyle} />
-                  <span style={{ padding: '20px 24px' }}>
-                    <button type="submit" className="btn-outline">
-                      Enviar Mensagem ›
-                    </button>
-                  </span>
-                </div>
+              {/* Submit footer */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: TABLE_GRID,
+                alignItems: 'center',
+                background: 'var(--color-surface-alt)',
+                borderTop: '1px solid var(--color-border)',
+              }}>
+                <span style={numStyle} />
+                <span style={numStyle} />
+                <span style={{ padding: '20px 24px' }}>
+                  <button type="submit" className="btn-outline">
+                    Enviar Mensagem ›
+                  </button>
+                </span>
               </div>
-            </form>
-          </motion.div>
-        </div>
+
+            </div>
+          </form>
+        </motion.div>
       </div>
     </section>
   )
