@@ -101,7 +101,7 @@ export default function Contact() {
           gap: '80px',
         }}
       >
-        {/* Contact info */}
+        {/* Contact info table */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -119,70 +119,37 @@ export default function Contact() {
             Fale Connosco
           </h3>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            <div>
-              <p
-                style={{
-                  color: 'var(--color-text-dim)',
+          <div style={{
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            boxShadow: '0 8px 40px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)',
+          }}>
+            {/* Header */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: TABLE_GRID,
+              background: 'var(--color-surface-alt)',
+              borderBottom: '1px solid var(--color-border)',
+            }}>
+              {['#', 'Tipo', 'Detalhe'].map((label) => (
+                <span key={label} style={{
+                  padding: '14px 24px',
                   fontSize: '10px',
                   letterSpacing: '0.2em',
                   textTransform: 'uppercase',
-                  marginBottom: '8px',
-                }}
-              >
-                Telefone
-              </p>
-              <p style={{ color: 'var(--color-text)', fontSize: '18px' }}>
-                916 641 573
-              </p>
-              <p style={{ color: 'var(--color-muted)', fontSize: '15px', marginTop: '4px' }}>
-                263 079 366
-              </p>
+                  color: 'var(--color-muted)',
+                  fontWeight: 500,
+                  fontFamily: 'Helvetica, sans-serif',
+                }}>{label}</span>
+              ))}
             </div>
 
-            <div>
-              <p
-                style={{
-                  color: 'var(--color-text-dim)',
-                  fontSize: '10px',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  marginBottom: '8px',
-                }}
-              >
-                Email
-              </p>
-              <a
-                href="mailto:jf@vjfonseca.com"
-                style={{
-                  color: 'var(--color-text)',
-                  fontSize: '16px',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s',
-                }}
-                onMouseEnter={(e) => (e.target.style.color = 'rgba(255,255,255,0.7)')}
-                onMouseLeave={(e) => (e.target.style.color = 'var(--color-text)')}
-              >
-                jf@vjfonseca.com
-              </a>
-            </div>
-
-            <div>
-              <p
-                style={{
-                  color: 'var(--color-text-dim)',
-                  fontSize: '10px',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  marginBottom: '8px',
-                }}
-              >
-                Localização
-              </p>
-              <p style={{ color: 'var(--color-muted)', fontSize: '15px', lineHeight: 1.7 }}>
-                Portugal
-              </p>
-            </div>
+            {/* Rows */}
+            {contactRows.map((row, i) => (
+              <ContactRow key={row.num} row={row} index={i} isLast={i === contactRows.length - 1} />
+            ))}
           </div>
         </motion.div>
 
