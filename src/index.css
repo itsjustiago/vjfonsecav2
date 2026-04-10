@@ -66,11 +66,6 @@
   box-sizing: border-box;
 }
 
-section, nav, footer {
-  position: relative;
-  z-index: 1;
-}
-
 html {
   scroll-behavior: smooth;
 }
