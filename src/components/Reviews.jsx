@@ -41,6 +41,7 @@ function ReviewCard({ review }) {
   return (
     <div style={{
       width: '320px',
+      height: '220px',
       flexShrink: 0,
       background: 'var(--color-surface)',
       border: '1px solid var(--color-border)',
