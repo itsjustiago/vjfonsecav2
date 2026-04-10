@@ -41,68 +41,77 @@ const services = [
   },
 ]
 
+const GRID = '48px 220px 1fr 140px'
+
 function ServiceRow({ service, index, isLast }) {
   const [ref, inView] = useInView({ threshold: 0.1 })
   const border = isLast ? 'none' : '1px solid var(--color-border)'
 
   return (
-    <motion.tr
+    <motion.button
       ref={ref}
       initial={{ opacity: 0, y: 10 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.06 }}
       className="service-row"
+      onClick={() => {}}
+      style={{
+        display: 'grid',
+        gridTemplateColumns: GRID,
+        alignItems: 'center',
+        borderBottom: border,
+        padding: '0',
+      }}
     >
-      <td style={{
-        padding: '20px 24px',
-        fontFamily: 'Helvetica, sans-serif',
-        fontSize: '11px',
-        letterSpacing: '0.18em',
-        color: 'var(--color-accent)',
-        whiteSpace: 'nowrap',
-        borderBottom: border,
-        width: '48px',
-      }}>
+      <span
+        className="service-num"
+        style={{
+          padding: '20px 24px',
+          fontFamily: 'Helvetica, sans-serif',
+          fontSize: '11px',
+          letterSpacing: '0.18em',
+        }}
+      >
         {service.num}
-      </td>
-      <td style={{
-        padding: '20px 24px',
-        fontFamily: 'Helvetica, sans-serif',
-        fontSize: '15px',
-        fontWeight: 700,
-        letterSpacing: '0.06em',
-        textTransform: 'uppercase',
-        color: 'var(--color-text)',
-        whiteSpace: 'nowrap',
-        borderBottom: border,
-      }}>
+      </span>
+
+      <span
+        className="service-title"
+        style={{
+          padding: '20px 24px',
+          fontFamily: 'Helvetica, sans-serif',
+          fontSize: '15px',
+          fontWeight: 700,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          whiteSpace: 'nowrap',
+        }}
+      >
         {service.title}
-      </td>
-      <td style={{
-        padding: '20px 24px',
-        fontSize: '13px',
-        lineHeight: 1.65,
-        color: 'var(--color-muted)',
-        borderBottom: border,
-        width: '100%',
-      }}>
+      </span>
+
+      <span
+        style={{
+          padding: '20px 24px',
+          fontSize: '13px',
+          lineHeight: 1.65,
+          color: 'var(--color-muted)',
+        }}
+      >
         {service.desc}
-      </td>
-      <td style={{
-        padding: '12px 24px',
-        borderBottom: border,
-        width: '140px',
-      }}>
-        <div style={{ width: '120px', height: '64px', overflow: 'hidden', borderRadius: '4px' }}>
+      </span>
+
+      <span style={{ padding: '12px 24px' }}>
+        <span style={{ display: 'block', width: '120px', height: '64px', overflow: 'hidden', borderRadius: '4px' }}>
           <img
             className="service-img"
             src={service.img}
             alt={service.title}
             loading="lazy"
           />
-        </div>
-      </td>
-    </motion.tr>
+        </span>
+      </span>
+    </motion.button>
   )
 }
 
@@ -133,30 +142,35 @@ export default function Services() {
             position: 'relative',
             zIndex: 1,
           }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-              <thead>
-                <tr style={{ background: 'var(--color-surface-alt)' }}>
-                  {['#', 'Serviço', 'Descrição', ''].map((label) => (
-                    <th key={label} style={{
-                      padding: '14px 24px',
-                      textAlign: 'left',
-                      fontSize: '10px',
-                      letterSpacing: '0.2em',
-                      textTransform: 'uppercase',
-                      color: 'var(--color-muted)',
-                      fontWeight: 500,
-                      fontFamily: 'Helvetica, sans-serif',
-                      borderBottom: '1px solid var(--color-border)',
-                    }}>{label}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {services.map((service, i) => (
-                  <ServiceRow key={service.num} service={service} index={i} isLast={i === services.length - 1} />
-                ))}
-              </tbody>
-            </table>
+            {/* Header */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: GRID,
+              background: 'var(--color-surface-alt)',
+              borderBottom: '1px solid var(--color-border)',
+            }}>
+              {['#', 'Serviço', 'Descrição', ''].map((label) => (
+                <span key={label} style={{
+                  padding: '14px 24px',
+                  fontSize: '10px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-muted)',
+                  fontWeight: 500,
+                  fontFamily: 'Helvetica, sans-serif',
+                }}>{label}</span>
+              ))}
+            </div>
+
+            {/* Rows */}
+            {services.map((service, i) => (
+              <ServiceRow
+                key={service.num}
+                service={service}
+                index={i}
+                isLast={i === services.length - 1}
+              />
+            ))}
           </div>
         </div>
       </div>
