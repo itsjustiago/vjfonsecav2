@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
@@ -10,72 +9,89 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-[--color-bg-contrast]"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#06070a] isolate"
     >
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=2200&q=80"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[--color-bg-base]/60 via-[--color-bg-base]/55 to-[--color-bg-base]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(91,155,229,0.18),transparent_50%)]" />
-      </div>
+      {/* Radial line pattern — fan of rays from top center */}
+      <RadialRays />
 
-      {/* Top meta strip */}
-      <div className="container-x absolute top-24 md:top-28 left-1/2 -translate-x-1/2 z-10 flex flex-wrap items-center gap-4 md:gap-6 text-[11px] tracking-[0.18em] uppercase text-[--color-text-muted]">
-        <motion.span
+      {/* Faint blueprint grid */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+        }}
+      />
+
+      {/* Top vignette + accent glow */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[60vh] -z-10 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(91,155,229,0.35),transparent_70%)]"
+      />
+      {/* Bottom fade to base */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-40 -z-10 bg-gradient-to-b from-transparent to-[--color-bg-base]"
+      />
+
+      <div className="container-x relative z-10 flex flex-col items-center text-center pt-24 pb-20">
+        {/* Pill badge */}
+        <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE_OUT }}
-          className="inline-flex items-center gap-2 text-[--color-accent]"
+          className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-[--color-border-strong] bg-[--color-bg-surface]/60 backdrop-blur-sm px-4 py-1.5"
         >
-          <span className="h-px w-6 bg-[--color-accent]" />
-          Serralharia Industrial · Setúbal
-        </motion.span>
-        <span className="hidden md:inline text-[--color-text-subtle]">
-          Est. 2003
-        </span>
-      </div>
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-[--color-accent] opacity-75 animate-ping" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[--color-accent]" />
+          </span>
+          <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-[--color-text-muted]">
+            Serralharia Industrial
+          </span>
+          <span className="text-[--color-text-subtle]">·</span>
+          <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
+            Setúbal · Est. 2003
+          </span>
+        </motion.div>
 
-      {/* Headline & CTAs */}
-      <div className="container-x relative z-10 pb-20 md:pb-28 pt-32">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-8 items-end">
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: EASE_OUT, delay: 0.1 }}
-            className="md:col-span-9"
-          >
-            <h1 className="display text-[44px] leading-[0.95] sm:text-[64px] md:text-[88px] lg:text-[120px] text-balance">
-              Aço que sustenta
-              <br />
-              <span className="text-[--color-text-muted]">o que se constrói.</span>
-            </h1>
-          </motion.div>
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: EASE_OUT, delay: 0.12 }}
+          className="display text-[44px] leading-[0.95] sm:text-[64px] md:text-[88px] lg:text-[112px] text-balance max-w-5xl"
+        >
+          Aço que sustenta
+          <br />
+          <span className="text-[--color-text-muted]">
+            o que se constrói.
+          </span>
+        </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.35 }}
-            className="md:col-span-3 md:pb-3 max-w-md"
-          >
-            <p className="text-[--color-text-muted] text-[15px] leading-relaxed">
-              Painéis, fachadas, vedações e perfis metálicos para a construção
-              civil e industrial. Resposta técnica em 24&nbsp;h.
-            </p>
-          </motion.div>
-        </div>
+        {/* Lead */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.3 }}
+          className="mt-8 max-w-xl text-[15px] md:text-base leading-relaxed text-[--color-text-muted]"
+        >
+          Painéis, fachadas, vedações e perfis metálicos para a construção
+          civil e industrial. Resposta técnica em 24&nbsp;horas.
+        </motion.p>
 
+        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.55 }}
-          className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5"
+          transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.45 }}
+          className="mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4"
         >
           <LinkButton href="#contacto" size="lg">
             Pedir orçamento
@@ -85,6 +101,32 @@ export function HeroSection() {
             Ver produtos
           </LinkButton>
         </motion.div>
+
+        {/* Metrics strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: EASE_OUT, delay: 0.65 }}
+          className="mt-20 grid grid-cols-3 gap-px bg-[--color-border] rounded-2xl overflow-hidden border border-[--color-border] max-w-2xl w-full"
+        >
+          {[
+            { stat: "+20", label: "Anos no sector" },
+            { stat: "11+", label: "Produtos especializados" },
+            { stat: "24h", label: "Tempo de resposta" },
+          ].map((m) => (
+            <div
+              key={m.label}
+              className="bg-[--color-bg-base]/80 backdrop-blur-sm px-4 py-5 flex flex-col items-center gap-1"
+            >
+              <span className="display text-2xl md:text-3xl text-[--color-text-primary]">
+                {m.stat}
+              </span>
+              <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
+                {m.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -92,7 +134,7 @@ export function HeroSection() {
         href="#produtos"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.1 }}
+        transition={{ duration: 1, delay: 1 }}
         className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-[10px] tracking-[0.18em] uppercase text-[--color-text-subtle] hover:text-[--color-text-primary] transition-colors"
       >
         Explorar
@@ -104,5 +146,63 @@ export function HeroSection() {
         </motion.span>
       </motion.a>
     </section>
+  );
+}
+
+/** Radial fan of thin lines emanating from top center, fading downward */
+function RadialRays() {
+  const lines = 28;
+  const spread = 140; // degrees of spread, centered on 270deg (downward)
+  const startAngle = 270 - spread / 2;
+  const step = spread / (lines - 1);
+
+  return (
+    <svg
+      aria-hidden
+      className="absolute inset-x-0 -top-[10%] -z-10 h-[140%] w-full"
+      viewBox="0 0 1440 1400"
+      preserveAspectRatio="xMidYMin slice"
+    >
+      <defs>
+        <linearGradient id="rayFade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#5B9BE5" stopOpacity="0.55" />
+          <stop offset="35%" stopColor="#5B9BE5" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#5B9BE5" stopOpacity="0" />
+        </linearGradient>
+        <radialGradient id="rayMask" cx="50%" cy="0%" r="80%">
+          <stop offset="0%" stopColor="white" stopOpacity="1" />
+          <stop offset="70%" stopColor="white" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="white" stopOpacity="0" />
+        </radialGradient>
+        <mask id="fadeMask">
+          <rect width="1440" height="1400" fill="url(#rayMask)" />
+        </mask>
+      </defs>
+      <g
+        mask="url(#fadeMask)"
+        stroke="url(#rayFade)"
+        strokeWidth="1"
+        fill="none"
+      >
+        {Array.from({ length: lines }).map((_, i) => {
+          const angle = ((startAngle + i * step) * Math.PI) / 180;
+          const cx = 720;
+          const cy = 0;
+          const length = 1600;
+          const x2 = cx + Math.cos(angle) * length;
+          const y2 = cy - Math.sin(angle) * length;
+          return (
+            <line
+              key={i}
+              x1={cx}
+              y1={cy}
+              x2={x2}
+              y2={y2}
+              vectorEffect="non-scaling-stroke"
+            />
+          );
+        })}
+      </g>
+    </svg>
   );
 }
