@@ -5,13 +5,13 @@ type Variant = "solid" | "outline" | "ghost";
 type Size = "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-300 ease-[var(--ease-out)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-accent] focus-visible:ring-offset-2 focus-visible:ring-offset-[--color-bg-base] whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-300 ease-[var(--ease-out)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[--color-bg-base] whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
   solid:
-    "bg-[--color-accent] text-[#06121f] hover:bg-[--color-accent-hover] shadow-[0_8px_24px_-12px_rgba(91,155,229,0.6)]",
+    "bg-[--color-bg-elevated]/70 text-white border border-white/20 hover:border-white/40 hover:bg-[--color-bg-elevated] backdrop-blur-md shadow-[0_10px_30px_-12px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.08)]",
   outline:
-    "border border-[--color-border-strong] text-[--color-text-primary] hover:border-[--color-accent] hover:text-[--color-accent] bg-transparent",
+    "bg-transparent text-white border border-white/15 hover:border-white/35 hover:bg-white/5 backdrop-blur-md",
   ghost:
     "text-[--color-text-muted] hover:text-[--color-text-primary] bg-transparent",
 };

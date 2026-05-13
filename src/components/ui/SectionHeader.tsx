@@ -22,12 +22,7 @@ export function SectionHeader({
         className
       )}
     >
-      {eyebrow && (
-        <span className="eyebrow inline-flex items-center gap-2">
-          <span className="h-px w-6 bg-[--color-accent]" />
-          {eyebrow}
-        </span>
-      )}
+      {eyebrow && <span className="eyebrow-pill">{eyebrow}</span>}
       <h2 className="display text-4xl sm:text-5xl md:text-6xl text-balance">
         {title}
       </h2>

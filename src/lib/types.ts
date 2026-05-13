@@ -28,6 +28,19 @@ export interface Differentiator {
   description: string;
 }
 
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  quote: string;
+  rating: number;
+}
+
+export interface Stat {
+  value: string;
+  label: string;
+}
+
 export interface ContactInfo {
   phone: string;
   phoneDisplay: string;
@@ -36,4 +49,6 @@ export interface ContactInfo {
   email: string;
   address: string;
   region: string;
+  hours: string;
+  whatsapp: string;
 }

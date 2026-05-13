@@ -1,6 +1,6 @@
 # V.&J. Fonseca — Site institucional (v2)
 
-Site da serralharia **V.&J. Fonseca**, especialista em painéis metálicos, fachadas, vedações e perfis para construção em Setúbal / Palmela.
+Site da **V.&J. Fonseca, Lda** — serralharia de família em Cabanas de Torres, Alenquer. Portões, gradeamentos, estruturas e vedações em ferro e aço, à medida.
 
 Versão 2 com direção editorial industrial escura. Sucessora de [vjfonseca](https://github.com/itsjustiago/vjfonseca).
 
@@ -85,6 +85,7 @@ O formulário em `ContactSection` é um stub `mailto:` (abre o cliente de email 
 
 ## Contactos do negócio
 
-- **Telefone:** 263 079 366 / 916 641 573
+- **Telefone:** 263 079 366 (atelier) · 916 641 573 (Sr. Fonseca)
 - **Email:** jf@vjfonseca.com
-- **Região:** Setúbal · Palmela
+- **Atelier:** Rua das Flores n.º 8, 2580-121 Cabanas de Torres, Alenquer
+- **Horário:** Seg–Sex · 08h00 — 18h00

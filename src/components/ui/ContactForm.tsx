@@ -47,10 +47,11 @@ export function ContactForm() {
         <button
           type="submit"
           className={cn(
-            "inline-flex items-center gap-2 rounded-full bg-[--color-accent] px-7 py-3.5",
-            "text-[#06121f] text-[15px] font-medium tracking-tight",
-            "transition-all duration-300 hover:bg-[--color-accent-hover]",
-            "shadow-[0_8px_24px_-12px_rgba(91,155,229,0.6)]"
+            "inline-flex items-center gap-2 rounded-full px-7 py-3.5",
+            "bg-[--color-bg-elevated]/70 text-white text-[15px] font-medium tracking-tight",
+            "border border-white/20 backdrop-blur-md",
+            "transition-all duration-300 hover:border-white/40 hover:bg-[--color-bg-elevated]",
+            "shadow-[0_10px_30px_-12px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.08)]"
           )}
         >
           Enviar pedido
@@ -85,8 +86,9 @@ function Field({
   required?: boolean;
 }) {
   const baseField = cn(
-    "w-full bg-transparent text-[--color-text-primary] placeholder:text-[--color-text-subtle]",
-    "border-0 border-b border-[--color-border] py-3 px-0",
+    "w-full bg-transparent text-[--color-text-primary] placeholder:text-[--color-text-muted]/60",
+    "border-0 border-b border-[--color-border-strong] py-3 px-0",
+    "hover:border-[--color-text-subtle]",
     "focus:outline-none focus:border-[--color-accent] transition-colors duration-300",
     "text-[15px]"
   );

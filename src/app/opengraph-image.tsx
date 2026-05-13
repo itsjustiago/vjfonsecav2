@@ -1,8 +1,9 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "V.&J. Fonseca — Painéis e Perfis Metálicos";
+export const alt = "V.&J. Fonseca — Serralharia em Cabanas de Torres";
 
 export default async function Image() {
   return new ImageResponse(
@@ -18,7 +19,7 @@ export default async function Image() {
           background:
             "radial-gradient(ellipse at top right, rgba(91,155,229,0.22), transparent 50%), #0a0b0d",
           color: "#f4f4f5",
-          fontFamily: "Georgia, serif",
+          fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
         <div
@@ -26,29 +27,44 @@ export default async function Image() {
             display: "flex",
             alignItems: "center",
             gap: 12,
-            color: "#5b9be5",
+            color: "#f4f4f5",
             fontSize: 18,
-            letterSpacing: 4,
-            textTransform: "uppercase",
+            letterSpacing: -0.2,
           }}
         >
-          <div style={{ width: 32, height: 2, background: "#5b9be5" }} />
-          V.&amp;J. Fonseca · Setúbal
+          <div
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: 9999,
+              background: "#f4f4f5",
+              boxShadow: "inset 0 0 0 1.5px #5c6169",
+            }}
+          />
+          V.&amp;J. Fonseca · Cabanas de Torres · desde 2019
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-          <div style={{ fontSize: 96, lineHeight: 1, letterSpacing: -2 }}>
-            Aço que sustenta
+          <div
+            style={{
+              fontSize: 112,
+              lineHeight: 1.02,
+              letterSpacing: -3.5,
+              fontWeight: 500,
+            }}
+          >
+            Ferro forjado
           </div>
           <div
             style={{
-              fontSize: 96,
-              lineHeight: 1,
-              letterSpacing: -2,
+              fontSize: 112,
+              lineHeight: 1.02,
+              letterSpacing: -3.5,
+              fontWeight: 500,
               color: "#9ba1a8",
             }}
           >
-            o que se constrói.
+            à medida.
           </div>
         </div>
 
@@ -61,13 +77,10 @@ export default async function Image() {
             color: "#9ba1a8",
             borderTop: "1px solid #2a2d33",
             paddingTop: 28,
-            fontFamily: "Inter, system-ui",
           }}
         >
-          <span>
-            Painéis · Fachadas · Vedações · Perfis
-          </span>
-          <span style={{ letterSpacing: 3, textTransform: "uppercase" }}>
+          <span>Portões · Gradeamentos · Estruturas · Vedações</span>
+          <span style={{ letterSpacing: 2, textTransform: "uppercase" }}>
             vj-fonseca.com
           </span>
         </div>

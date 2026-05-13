@@ -19,8 +19,7 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7">
             <Reveal className="space-y-6 mb-12">
-              <span className="eyebrow inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-[--color-accent]" />
+              <span className="eyebrow-pill">
                 {CONTACT_SECTION.eyebrow}
               </span>
               <h2 className="display text-4xl sm:text-5xl md:text-[56px] text-balance">
@@ -41,8 +40,8 @@ export function ContactSection() {
               <div>
                 <div className="eyebrow mb-1.5">Contacto direto</div>
                 <p className="text-sm text-[--color-text-muted]">
-                  Prefere falar connosco? Ligue ou envie um email — respondemos
-                  em horas, não em dias.
+                  É a mesma família a atender o telefone, a ir a obra medir e
+                  a soldar a peça. Sem central de chamadas.
                 </p>
               </div>
 
@@ -50,31 +49,31 @@ export function ContactSection() {
 
               <ContactRow
                 icon={Phone}
-                label="Geral"
+                label="Atelier · fixo"
                 value={CONTACT.phoneDisplay}
                 href={`tel:+351${CONTACT.phone}`}
               />
               <ContactRow
                 icon={Phone}
-                label="Comercial"
+                label="Sr. Fonseca · móvel"
                 value={CONTACT.mobileDisplay}
                 href={`tel:+351${CONTACT.mobile}`}
               />
               <ContactRow
                 icon={Mail}
-                label="Email"
+                label="Email · orçamentos"
                 value={CONTACT.email}
                 href={`mailto:${CONTACT.email}`}
               />
               <ContactRow
                 icon={MapPin}
-                label="Localização"
-                value={CONTACT.region}
+                label="Atelier"
+                value={CONTACT.address}
               />
               <ContactRow
                 icon={Clock}
                 label="Horário"
-                value="Seg–Sex · 09h00 – 18h00"
+                value={CONTACT.hours}
               />
             </Reveal>
           </div>

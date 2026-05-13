@@ -1,43 +1,40 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
-});
-
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
-  subsets: ["latin"],
-  display: "swap",
+  weight: ["400"],
+  style: ["italic"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "V.&J. Fonseca — Painéis e Perfis Metálicos | Setúbal",
+    default: "V.&J. Fonseca — Serralharia em Cabanas de Torres, Alenquer",
     template: "%s · V.&J. Fonseca",
   },
   description:
-    "Fornecedor especializado em painéis metálicos, fachadas, vedações e perfis para construção. Setúbal, Palmela e região de Lisboa. Orçamento em 24h.",
+    "Serralharia em Cabanas de Torres, Alenquer. Portões, gradeamentos, estruturas e vedações em ferro e aço, à medida. Orçamento em 24h.",
   keywords: [
-    "painéis metálicos",
-    "painel sandwich",
-    "fachadas metálicas",
-    "vedação metálica",
-    "perfis galvanizados",
-    "serralharia industrial",
-    "Setúbal",
-    "Palmela",
-    "construção metálica",
+    "serralharia",
+    "portões",
+    "gradeamentos",
+    "estruturas metálicas",
+    "vedações",
+    "ferro forjado",
+    "aço inox",
+    "Cabanas de Torres",
+    "Alenquer",
+    "zona Oeste",
   ],
   authors: [{ name: "V.&J. Fonseca" }],
   metadataBase: new URL("https://vj-fonseca.com"),
@@ -46,9 +43,9 @@ export const metadata: Metadata = {
     locale: "pt_PT",
     url: "https://vj-fonseca.com",
     siteName: "V.&J. Fonseca",
-    title: "V.&J. Fonseca — Painéis e Perfis Metálicos",
+    title: "V.&J. Fonseca — Serralharia em Cabanas de Torres",
     description:
-      "Fornecedor especializado em coberturas, fachadas, vedações e perfis metálicos. Setúbal · Palmela.",
+      "Portões, gradeamentos, estruturas e vedações em ferro e aço. Cabanas de Torres · Alenquer · desde 2019.",
   },
   robots: { index: true, follow: true },
 };
@@ -62,20 +59,30 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "V.&J. Fonseca",
+  name: "V.&J. Fonseca, Lda",
   image: "https://vj-fonseca.com/og.png",
   url: "https://vj-fonseca.com",
   telephone: "+351263079366",
   email: "jf@vjfonseca.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Setúbal",
-    addressRegion: "Setúbal",
+    streetAddress: "Rua das Flores n.º 8",
+    postalCode: "2580-121",
+    addressLocality: "Cabanas de Torres",
+    addressRegion: "Alenquer",
     addressCountry: "PT",
   },
-  areaServed: ["Setúbal", "Palmela", "Lisboa"],
+  areaServed: [
+    "Alenquer",
+    "Sobral de Monte Agraço",
+    "Torres Vedras",
+    "Cadaval",
+    "Azambuja",
+    "Mafra",
+    "Lisboa",
+  ],
   description:
-    "Fornecedor especializado em painéis metálicos, fachadas, vedações e perfis para a construção.",
+    "Serralharia em Cabanas de Torres, Alenquer. Portões, gradeamentos, estruturas e vedações em ferro e aço, à medida.",
 };
 
 export default function RootLayout({
@@ -84,7 +91,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-PT"
-      className={`${inter.variable} ${fraunces.variable} ${jetbrains.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col grain bg-[--color-bg-base] text-[--color-text-primary]">
         <script

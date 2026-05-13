@@ -1,6 +1,6 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PortfolioCard } from "@/components/ui/PortfolioCard";
-import { PORTFOLIO } from "@/lib/constants";
+import { PORTFOLIO, PORTFOLIO_SECTION } from "@/lib/constants";
 
 // Editorial bento layout: define an aspect per slot, looped across the gallery
 const ASPECTS = [
@@ -27,22 +27,22 @@ export function PortfolioSection() {
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
           <SectionHeader
-            eyebrow="Obras"
+            eyebrow={PORTFOLIO_SECTION.eyebrow}
             title={
               <>
-                Aplicado em obra,
+                {PORTFOLIO_SECTION.title[0]}
                 <br />
-                <span className="text-[--color-text-muted]">
-                  validado pelo tempo.
+                <span className="text-[--color-text-muted] accent-serif">
+                  {PORTFOLIO_SECTION.title[1]}
                 </span>
               </>
             }
-            lead="Uma seleção recente de coberturas, fachadas e vedações executadas em parceria com empreiteiros da região."
+            lead={PORTFOLIO_SECTION.lead}
           />
           <div className="hidden md:block text-right font-mono text-[11px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
-            12 projetos
+            {PORTFOLIO.length} projetos
             <br />
-            2022 — 2024
+            2021 — 2024
           </div>
         </div>
 

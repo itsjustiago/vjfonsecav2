@@ -1,8 +1,9 @@
 "use client";
 
 import {
-  Clock,
   BadgeCheck,
+  Clock,
+  Hammer,
   MapPin,
   Settings2,
   type LucideIcon,
@@ -12,8 +13,9 @@ import { EASE_OUT } from "@/lib/utils";
 import type { Differentiator } from "@/lib/types";
 
 const ICONS: Record<string, LucideIcon> = {
-  Clock,
   BadgeCheck,
+  Clock,
+  Hammer,
   MapPin,
   Settings2,
 };

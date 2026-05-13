@@ -1,11 +1,22 @@
 "use client";
 
-import { Layers, PanelTop, Shield, Wrench, type LucideIcon } from "lucide-react";
+import {
+  DoorOpen,
+  Grid3x3,
+  Layers,
+  PanelTop,
+  Shield,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { cn, EASE_OUT } from "@/lib/utils";
 import type { ProductCategory } from "@/lib/types";
+import { PRODUCTS } from "@/lib/constants";
 
 const ICONS: Record<string, LucideIcon> = {
+  DoorOpen,
+  Grid3x3,
   Layers,
   PanelTop,
   Shield,
@@ -40,7 +51,7 @@ export function ProductCard({
           <Icon className="h-5 w-5" strokeWidth={1.5} />
         </div>
         <span className="font-mono text-[11px] tracking-[0.18em] text-[--color-text-subtle]">
-          {String(index + 1).padStart(2, "0")} / 04
+          {String(index + 1).padStart(2, "0")} / {String(PRODUCTS.length).padStart(2, "0")}
         </span>
       </div>
 

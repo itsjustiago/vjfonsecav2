@@ -12,8 +12,8 @@ export function Footer() {
           <div className="md:col-span-5 space-y-5">
             <Logo variant="compact" />
             <p className="text-sm leading-relaxed text-[--color-text-muted] max-w-sm">
-              Painéis e perfis metálicos para a construção. Setúbal, Palmela e
-              região de Lisboa — desde há mais de 20 anos.
+              Serralharia em Cabanas de Torres, Alenquer. Trabalho à medida em
+              ferro e aço, desde 2019.
             </p>
           </div>
 
@@ -61,10 +61,10 @@ export function Footer() {
                   {CONTACT.email}
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="h-3.5 w-3.5 text-[--color-accent]" strokeWidth={1.5} />
+              <li className="flex items-start gap-3">
+                <MapPin className="h-3.5 w-3.5 mt-1 text-[--color-accent] shrink-0" strokeWidth={1.5} />
                 <span className="text-[--color-text-muted]">
-                  {CONTACT.region}
+                  {CONTACT.address}
                 </span>
               </li>
             </ul>
@@ -75,7 +75,7 @@ export function Footer() {
         <div className="mt-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-[--color-text-subtle]">
           <span>© {year} V.&amp;J. Fonseca · Todos os direitos reservados.</span>
           <span className="font-mono tracking-[0.18em] uppercase">
-            Setúbal · Portugal
+            Cabanas de Torres · Alenquer
           </span>
         </div>
       </div>

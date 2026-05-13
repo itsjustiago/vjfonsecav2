@@ -13,10 +13,7 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7 space-y-10">
             <Reveal className="space-y-6">
-              <span className="eyebrow inline-flex items-center gap-2">
-                <span className="h-px w-6 bg-[--color-accent]" />
-                {ABOUT.eyebrow}
-              </span>
+              <span className="eyebrow-pill">{ABOUT.eyebrow}</span>
               <h2 className="display text-4xl sm:text-5xl md:text-[56px] text-balance">
                 {ABOUT.title}
               </h2>
@@ -25,6 +22,17 @@ export function AboutSection() {
                   <p key={i}>{p}</p>
                 ))}
               </div>
+              <ul className="mt-2 space-y-2.5 max-w-2xl">
+                {ABOUT.bullets.map((b) => (
+                  <li
+                    key={b}
+                    className="flex items-start gap-3 text-sm text-[--color-text-muted]"
+                  >
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[--color-accent]" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </Reveal>
 
             <Reveal delay={1} className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-[--color-border]">

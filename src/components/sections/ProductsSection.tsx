@@ -1,6 +1,6 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ProductCard } from "@/components/ui/ProductCard";
-import { PRODUCTS } from "@/lib/constants";
+import { PRODUCTS, PRODUCTS_SECTION } from "@/lib/constants";
 
 export function ProductsSection() {
   return (
@@ -11,22 +11,22 @@ export function ProductsSection() {
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
           <SectionHeader
-            eyebrow="Catálogo"
+            eyebrow={PRODUCTS_SECTION.eyebrow}
             title={
               <>
-                Quatro famílias.
+                {PRODUCTS_SECTION.title[0]}
                 <br />
-                <span className="text-[--color-text-muted]">
-                  Um padrão de qualidade.
+                <span className="text-[--color-text-muted] accent-serif">
+                  {PRODUCTS_SECTION.title[1]}
                 </span>
               </>
             }
-            lead="Especialistas em painéis metálicos para coberturas, fachadas, vedações e perfis estruturais — soluções completas para qualquer obra."
+            lead={PRODUCTS_SECTION.lead}
           />
           <div className="hidden md:block text-right font-mono text-[11px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
-            04 categorias
+            {PRODUCTS_SECTION.count} {PRODUCTS_SECTION.countLabel}
             <br />
-            11+ produtos
+            atelier próprio
           </div>
         </div>
 

@@ -12,16 +12,16 @@
 
 ## Business Profile
 
-**Company:** V.&J. Fonseca
+**Company:** V.&J. Fonseca, Lda
 **Website:** vj-fonseca.com
 **Email:** jf@vjfonseca.com
 **Phone:** 263 079 366 · 916 641 573
-**Region:** Setúbal / Palmela, Portugal
-**Type:** Small family business, B2B
-**Target market:** Construction contractors, builders, metalworkers
+**Address:** Rua das Flores n.º 8, 2580-121 Cabanas de Torres, Alenquer
+**Type:** Small family business, B2B / B2C
+**Target market:** Casas, quintas e indústrias da zona Oeste (Alenquer, Torres Vedras, Cadaval, Sobral, Mafra, Lisboa)
 
 ### What They Do
-Specialist supplier of metallic panels and profiles for the construction industry. Products cover roofing (Coberturas), facades (Fachadas), fencing (Vedação), and structural profiles (Perfis Metálicos).
+Family ironwork shop (serralharia) founded in 2019. Five service families: portões e portas, gradeamentos e corrimãos, estruturas metálicas, vedações e perímetros, reparações e retoques. Trabalho à medida em ferro, aço inox e galvanizado.
 
 The single source of truth for products, portfolio, differentiators, copy, and contact info is **`src/lib/constants.ts`**. Update there.
 
