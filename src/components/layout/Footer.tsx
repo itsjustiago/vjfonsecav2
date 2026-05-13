@@ -34,9 +34,13 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[--color-text-muted] hover:text-[--color-text-primary] transition-colors"
+                    className="group inline-flex relative text-sm text-[--color-text-muted] hover:text-[--color-text-primary] transition-colors duration-300"
                   >
                     {link.label}
+                    <span
+                      aria-hidden
+                      className="absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-[--color-accent] transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-x-100"
+                    />
                   </Link>
                 </li>
               ))}

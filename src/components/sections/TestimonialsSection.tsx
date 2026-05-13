@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedStat } from "@/components/ui/AnimatedStat";
 import { TESTIMONIALS, TESTIMONIALS_SECTION, STATS } from "@/lib/constants";
 import type { Testimonial } from "@/lib/types";
 
@@ -76,17 +77,7 @@ export function TestimonialsSection() {
           <div className="rounded-2xl border border-[--color-border] bg-[--color-bg-surface] p-8 md:p-10">
             <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[--color-border]">
               {STATS.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex flex-col items-center gap-2 py-6 sm:py-2 px-6 text-center"
-                >
-                  <span className="display text-4xl md:text-5xl text-[--color-text-primary]">
-                    {s.value}
-                  </span>
-                  <span className="text-sm md:text-base text-[--color-text-muted]">
-                    {s.label}
-                  </span>
-                </div>
+                <AnimatedStat key={s.label} value={s.value} label={s.label} />
               ))}
             </div>
           </div>
@@ -106,13 +97,13 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
   return (
     <article
-      className="shrink-0 w-[88vw] max-w-[420px] md:w-[440px] rounded-2xl border border-[--color-border] bg-[--color-bg-surface] p-7 flex flex-col gap-5"
+      className="group shrink-0 w-[88vw] max-w-[420px] md:w-[440px] rounded-2xl border border-[--color-border] bg-[--color-bg-surface] p-7 flex flex-col gap-5 transition-all duration-500 ease-[var(--ease-out)] hover:border-[--color-border-strong] hover:bg-[--color-bg-elevated] hover:-translate-y-1 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.8)]"
       aria-roledescription="testimonial"
     >
       <header className="flex items-center gap-3.5">
         <div
           aria-hidden
-          className="grid place-items-center h-11 w-11 rounded-full bg-[--color-bg-elevated] border border-[--color-border-strong] text-[--color-text-primary] text-sm font-semibold tracking-tight"
+          className="grid place-items-center h-11 w-11 rounded-full bg-[--color-bg-elevated] border border-[--color-border-strong] text-[--color-text-primary] text-sm font-semibold tracking-tight transition-colors duration-500 group-hover:border-[--color-accent]/50 group-hover:text-[--color-accent]"
         >
           {initials}
         </div>

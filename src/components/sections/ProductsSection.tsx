@@ -1,5 +1,5 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { ProductCard } from "@/components/ui/ProductCard";
+import { ProductRow } from "@/components/ui/ProductRow";
 import { PRODUCTS, PRODUCTS_SECTION } from "@/lib/constants";
 
 export function ProductsSection() {
@@ -44,15 +44,15 @@ export function ProductsSection() {
             lead={PRODUCTS_SECTION.lead}
           />
           <div className="hidden md:block text-right font-mono text-[11px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
-            {PRODUCTS_SECTION.count} {PRODUCTS_SECTION.countLabel}
+            Atelier próprio
             <br />
-            atelier próprio
+            Cabanas de Torres
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        <div className="border-y border-[--color-border] divide-y divide-[--color-border]">
           {PRODUCTS.map((p, i) => (
-            <ProductCard key={p.id} product={p} index={i} />
+            <ProductRow key={p.id} product={p} index={i} />
           ))}
         </div>
       </div>

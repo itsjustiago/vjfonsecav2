@@ -9,7 +9,13 @@ import { NAV_LINKS, CONTACT } from "@/lib/constants";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 
-const sectionIds = ["produtos", "portefolio", "sobre", "contacto"];
+const sectionIds = [
+  "produtos",
+  "portefolio",
+  "sobre",
+  "testemunhos",
+  "contacto",
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +50,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-colors duration-300",
+                  "group relative px-4 py-2 text-sm font-medium transition-colors duration-300",
                   isActive
                     ? "text-[--color-text-primary]"
                     : "text-[--color-text-muted] hover:text-[--color-text-primary]"
@@ -52,9 +58,12 @@ export function Navbar() {
               >
                 {link.label}
                 <span
+                  aria-hidden
                   className={cn(
-                    "absolute left-4 right-4 -bottom-0.5 h-px bg-[--color-accent] transition-opacity duration-300",
-                    isActive ? "opacity-100" : "opacity-0"
+                    "absolute left-4 right-4 -bottom-0.5 h-px bg-[--color-accent] origin-left transition-transform duration-500 ease-[var(--ease-out)]",
+                    isActive
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
                   )}
                 />
               </Link>
