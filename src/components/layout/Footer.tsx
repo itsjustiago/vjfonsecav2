@@ -6,7 +6,17 @@ import { NAV_LINKS, CONTACT } from "@/lib/constants";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative border-t border-[--color-border] bg-[--color-bg-contrast]">
+    <footer className="relative border-t border-[--color-border] bg-[--color-bg-contrast] overflow-hidden isolate">
+      {/* Metallic blue ambient glow — top-center */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[700px] rounded-full -z-10 opacity-45"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.14), rgba(91,155,229,0.04) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
       <div className="container-x py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5 space-y-5">

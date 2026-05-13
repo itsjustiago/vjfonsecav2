@@ -11,8 +11,28 @@ export function TestimonialsSection() {
   return (
     <section
       id="testemunhos"
-      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-base] overflow-hidden"
+      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-base] overflow-hidden isolate"
     >
+      {/* Metallic blue ambient glow — centered, behind the stats card */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-32 left-1/2 -translate-x-1/2 h-[600px] w-[800px] rounded-full -z-10 opacity-55"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.16), rgba(91,155,229,0.05) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
+      {/* Counter glow — top-right, smaller */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 -right-32 h-[440px] w-[440px] rounded-full -z-10 opacity-40"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.13), rgba(91,155,229,0.04) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
       <div className="container-x">
         <div className="mb-14 md:mb-20">
           <SectionHeader

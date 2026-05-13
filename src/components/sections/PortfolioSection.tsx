@@ -22,8 +22,28 @@ export function PortfolioSection() {
   return (
     <section
       id="portefolio"
-      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-surface] border-y border-[--color-border]"
+      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-surface] border-y border-[--color-border] overflow-hidden isolate"
     >
+      {/* Metallic blue ambient glow — bottom-left */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-40 -left-32 h-[560px] w-[560px] rounded-full -z-10 opacity-55"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.16), rgba(91,155,229,0.05) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
+      {/* Counter glow — top-right, smaller */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 -right-24 h-[440px] w-[440px] rounded-full -z-10 opacity-45"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.14), rgba(91,155,229,0.04) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
       <div className="container-x">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
           <SectionHeader

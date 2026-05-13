@@ -9,10 +9,15 @@ export function ContactSection() {
       id="contacto"
       className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-contrast] border-t border-[--color-border] overflow-hidden"
     >
-      {/* Subtle accent glow */}
+      {/* Metallic blue ambient glow */}
       <div
         aria-hidden
-        className="absolute -top-32 right-1/4 h-[420px] w-[420px] rounded-full bg-[--color-accent-glow] blur-[120px] opacity-60"
+        className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full opacity-65"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.18), rgba(91,155,229,0.06) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
       />
 
       <div className="container-x relative">

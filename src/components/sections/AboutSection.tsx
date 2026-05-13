@@ -7,8 +7,28 @@ export function AboutSection() {
   return (
     <section
       id="sobre"
-      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-base]"
+      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-base] overflow-hidden isolate"
     >
+      {/* Metallic blue ambient glow — top-right behind the sticky card */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-20 -right-40 h-[520px] w-[520px] rounded-full -z-10 opacity-50"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.15), rgba(91,155,229,0.05) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
+      {/* Counter glow — bottom-left, smaller */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-24 -left-32 h-[460px] w-[460px] rounded-full -z-10 opacity-40"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(120,165,210,0.13), rgba(91,155,229,0.04) 38%, transparent 68%)",
+          filter: "blur(40px)",
+        }}
+      />
       <div className="container-x">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <div className="lg:col-span-7 space-y-10">
