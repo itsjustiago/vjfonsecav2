@@ -17,7 +17,7 @@ export default async function Image() {
           width: "100%",
           padding: "72px",
           background:
-            "radial-gradient(ellipse at top right, rgba(91,155,229,0.22), transparent 50%), #0a0b0d",
+            "radial-gradient(ellipse at top right, rgba(111,136,164,0.22), transparent 50%), #0a0b0d",
           color: "#f4f4f5",
           fontFamily: "system-ui, -apple-system, sans-serif",
         }}

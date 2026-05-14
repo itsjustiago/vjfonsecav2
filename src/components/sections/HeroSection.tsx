@@ -28,7 +28,7 @@ export function HeroSection() {
       {/* Subtle accent glow on top */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-[55vh] -z-10 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(91,155,229,0.18),transparent_70%)]"
+        className="absolute inset-x-0 top-0 h-[55vh] -z-10 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(111,136,164,0.18),transparent_70%)]"
       />
       {/* Bottom fade to base — long, multi-stop curve so the smoke dissolves
           well before the next section's hard black starts */}
@@ -37,13 +37,13 @@ export function HeroSection() {
         className="absolute inset-x-0 bottom-0 h-[55vh] -z-10 bg-gradient-to-b from-transparent via-[--color-bg-base]/70 to-[--color-bg-base]"
       />
 
-      <div className="container-x relative z-10 flex flex-col items-center text-center pt-32 pb-24">
+      <div className="container-x relative z-10 flex flex-col items-center text-center pt-28 pb-20 sm:pt-32 sm:pb-24">
         {/* Pill badge */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE_OUT }}
-          className="mb-10"
+          className="mb-8"
         >
           <span className="eyebrow-pill">{HERO.eyebrow}</span>
         </motion.div>
@@ -53,11 +53,11 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: EASE_OUT, delay: 0.12 }}
-          className="display font-normal text-[36px] leading-[1.05] sm:text-[48px] md:text-[64px] lg:text-[80px] text-balance max-w-4xl"
+          className="display font-normal text-[52px] leading-[1.02] sm:text-[60px] md:text-[64px] lg:text-[80px] text-balance max-w-4xl"
         >
           {HERO.headline[0]}
           <br />
-          <span className="text-[--color-text-muted] accent-serif">
+          <span className="text-(color:--color-text-secondary) accent-serif">
             {HERO.headline[1]}
           </span>
         </motion.h1>
@@ -67,10 +67,10 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.3 }}
-          className="mt-8 max-w-2xl text-[14px] md:text-[15px] leading-relaxed text-[--color-text-subtle]"
+          className="mt-5 max-w-[300px] sm:max-w-2xl text-[14px] md:text-[15px] leading-relaxed text-(color:--color-text-muted)"
         >
           {HERO.subtextLines[0]}
-          <br />
+          <br className="hidden sm:inline" />{" "}
           {HERO.subtextLines[1]}
         </motion.p>
 
@@ -79,13 +79,22 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.45 }}
-          className="mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4"
+          className="mt-8 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-4 w-full sm:w-auto max-w-[280px] sm:max-w-none"
         >
-          <LinkButton href="#contacto" size="lg">
+          <LinkButton
+            href="#contacto"
+            size="md"
+            className="w-full sm:w-auto sm:px-7 sm:py-3.5 sm:text-[15px]"
+          >
             {HERO.ctaPrimary}
             <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
           </LinkButton>
-          <LinkButton href="#portefolio" variant="outline" size="lg">
+          <LinkButton
+            href="#portefolio"
+            variant="outline"
+            size="md"
+            className="w-full sm:w-auto sm:px-7 sm:py-3.5 sm:text-[15px]"
+          >
             {HERO.ctaSecondary}
           </LinkButton>
         </motion.div>
@@ -96,7 +105,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="hidden md:flex mt-20 w-full max-w-3xl items-center gap-5 text-[12px] tracking-[-0.005em] text-[--color-text-subtle] hover:text-[--color-text-muted] transition-colors group"
+          className="hidden md:flex mt-20 w-full max-w-3xl items-center gap-5 text-[12px] tracking-[-0.005em] text-(color:--color-text-subtle) hover:text-(color:--color-text-muted) transition-colors group"
         >
           <span className="shrink-0">{HERO.scrollHint.left}</span>
           <span
@@ -107,7 +116,7 @@ export function HeroSection() {
             aria-hidden
             animate={{ y: [0, 4, 0] }}
             transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-            className="grid place-items-center h-9 w-9 rounded-full border border-[--color-border-strong] bg-[--color-bg-elevated]/60 text-[--color-text-muted] backdrop-blur-md group-hover:text-white transition-colors"
+            className="grid place-items-center h-9 w-9 rounded-full border border-[--color-border-strong] bg-[--color-bg-elevated]/60 text-(color:--color-text-muted) backdrop-blur-md group-hover:text-white transition-colors"
           >
             <Mouse className="h-4 w-4" strokeWidth={1.5} />
           </motion.span>

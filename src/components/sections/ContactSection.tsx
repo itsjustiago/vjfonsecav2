@@ -7,7 +7,7 @@ export function ContactSection() {
   return (
     <section
       id="contacto"
-      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-contrast] border-t border-[--color-border] overflow-hidden"
+      className="relative scroll-mt-24 py-24 sm:py-28 md:py-36 bg-[--color-bg-contrast] border-t border-[--color-border] overflow-hidden"
     >
       {/* Metallic blue ambient glow */}
       <div
@@ -15,7 +15,7 @@ export function ContactSection() {
         className="pointer-events-none absolute -top-32 right-1/4 h-[520px] w-[520px] rounded-full opacity-65"
         style={{
           background:
-            "radial-gradient(circle, rgba(120,165,210,0.18), rgba(91,155,229,0.06) 38%, transparent 68%)",
+            "radial-gradient(circle, rgba(111,136,164,0.18), rgba(111,136,164,0.06) 38%, transparent 68%)",
           filter: "blur(40px)",
         }}
       />
@@ -27,10 +27,10 @@ export function ContactSection() {
               <span className="eyebrow-pill">
                 {CONTACT_SECTION.eyebrow}
               </span>
-              <h2 className="display text-4xl sm:text-5xl md:text-[56px] text-balance">
+              <h2 className="display text-[44px] sm:text-5xl md:text-[56px] leading-[1.04] text-balance">
                 {CONTACT_SECTION.title}
               </h2>
-              <p className="text-[--color-text-muted] text-base md:text-lg leading-relaxed max-w-xl">
+              <p className="text-(color:--color-text-muted) text-base md:text-lg leading-relaxed max-w-xl">
                 {CONTACT_SECTION.subtitle}
               </p>
             </Reveal>
@@ -44,7 +44,7 @@ export function ContactSection() {
             <Reveal delay={2} className="rounded-2xl border border-[--color-border] bg-[--color-bg-surface] p-7 md:p-9 space-y-7">
               <div>
                 <div className="eyebrow mb-1.5">Contacto direto</div>
-                <p className="text-sm text-[--color-text-muted]">
+                <p className="text-sm text-(color:--color-text-muted)">
                   É a mesma família a atender o telefone, a ir a obra medir e
                   a soldar a peça. Sem central de chamadas.
                 </p>
@@ -101,14 +101,14 @@ function ContactRow({
 }) {
   const content = (
     <div className="flex items-start gap-4">
-      <div className="shrink-0 mt-0.5 grid place-items-center h-9 w-9 rounded-lg bg-[--color-accent-soft] text-[--color-accent]">
+      <div className="shrink-0 mt-0.5 grid place-items-center h-9 w-9 rounded-lg bg-[--color-accent-soft] text-(color:--color-accent)">
         <Icon className="h-4 w-4" strokeWidth={1.5} />
       </div>
       <div>
-        <div className="text-[11px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
+        <div className="text-[11px] tracking-[0.18em] uppercase text-(color:--color-text-subtle)">
           {label}
         </div>
-        <div className="text-[15px] text-[--color-text-primary] mt-0.5">
+        <div className="text-[15px] text-(color:--color-text-primary) mt-0.5">
           {value}
         </div>
       </div>

@@ -23,11 +23,11 @@ export function SectionHeader({
       )}
     >
       {eyebrow && <span className="eyebrow-pill">{eyebrow}</span>}
-      <h2 className="display text-4xl sm:text-5xl md:text-6xl text-balance">
+      <h2 className="display text-[44px] sm:text-5xl md:text-6xl leading-[1.04] text-balance">
         {title}
       </h2>
       {lead && (
-        <p className="text-[--color-text-muted] text-base md:text-lg leading-relaxed max-w-prose">
+        <p className="text-(color:--color-text-muted) text-base md:text-lg leading-relaxed max-w-prose">
           {lead}
         </p>
       )}

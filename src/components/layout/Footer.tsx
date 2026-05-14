@@ -13,7 +13,7 @@ export function Footer() {
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[420px] w-[700px] rounded-full -z-10 opacity-45"
         style={{
           background:
-            "radial-gradient(circle, rgba(120,165,210,0.14), rgba(91,155,229,0.04) 38%, transparent 68%)",
+            "radial-gradient(circle, rgba(111,136,164,0.14), rgba(111,136,164,0.04) 38%, transparent 68%)",
           filter: "blur(40px)",
         }}
       />
@@ -21,7 +21,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5 space-y-5">
             <Logo variant="compact" />
-            <p className="text-sm leading-relaxed text-[--color-text-muted] max-w-sm">
+            <p className="text-sm leading-relaxed text-(color:--color-text-muted) max-w-sm">
               Serralharia em Cabanas de Torres, Alenquer. Trabalho à medida em
               ferro e aço, desde 2019.
             </p>
@@ -34,7 +34,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group inline-flex relative text-sm text-[--color-text-muted] hover:text-[--color-text-primary] transition-colors duration-300"
+                    className="group inline-flex relative text-sm text-(color:--color-text-muted) hover:text-(color:--color-text-primary) transition-colors duration-300"
                   >
                     {link.label}
                     <span
@@ -50,34 +50,46 @@ export function Footer() {
           <div className="md:col-span-4">
             <div className="eyebrow mb-4">Contacto</div>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-3">
-                <Phone className="h-3.5 w-3.5 text-[--color-accent]" strokeWidth={1.5} />
+              <li className="group/row flex items-center gap-3">
+                <Phone className="h-3.5 w-3.5 text-(color:--color-accent) transition-transform duration-300 ease-[var(--ease-out)] group-hover/row:-rotate-12" strokeWidth={1.5} />
                 <a
                   href={`tel:+351${CONTACT.phone}`}
-                  className="text-[--color-text-muted] hover:text-[--color-text-primary]"
+                  className="group relative text-(color:--color-text-muted) hover:text-(color:--color-text-primary) transition-colors duration-300"
                 >
                   {CONTACT.phoneDisplay}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-[--color-accent] transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-x-100"
+                  />
                 </a>
-                <span className="text-[--color-text-subtle]">·</span>
+                <span className="text-(color:--color-text-subtle)">·</span>
                 <a
                   href={`tel:+351${CONTACT.mobile}`}
-                  className="text-[--color-text-muted] hover:text-[--color-text-primary]"
+                  className="group relative text-(color:--color-text-muted) hover:text-(color:--color-text-primary) transition-colors duration-300"
                 >
                   {CONTACT.mobileDisplay}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-[--color-accent] transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-x-100"
+                  />
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-3.5 w-3.5 text-[--color-accent]" strokeWidth={1.5} />
+              <li className="group/row flex items-center gap-3">
+                <Mail className="h-3.5 w-3.5 text-(color:--color-accent) transition-transform duration-300 ease-[var(--ease-out)] group-hover/row:-translate-y-0.5" strokeWidth={1.5} />
                 <a
                   href={`mailto:${CONTACT.email}`}
-                  className="text-[--color-text-muted] hover:text-[--color-text-primary]"
+                  className="group relative text-(color:--color-text-muted) hover:text-(color:--color-text-primary) transition-colors duration-300"
                 >
                   {CONTACT.email}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0 bg-[--color-accent] transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-x-100"
+                  />
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="h-3.5 w-3.5 mt-1 text-[--color-accent] shrink-0" strokeWidth={1.5} />
-                <span className="text-[--color-text-muted]">
+                <MapPin className="h-3.5 w-3.5 mt-1 text-(color:--color-accent) shrink-0" strokeWidth={1.5} />
+                <span className="text-(color:--color-text-muted)">
                   {CONTACT.address}
                 </span>
               </li>
@@ -86,7 +98,7 @@ export function Footer() {
         </div>
 
         <div className="hr-fine mt-14" />
-        <div className="mt-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-[--color-text-subtle]">
+        <div className="mt-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-(color:--color-text-subtle)">
           <span>© {year} V.&amp;J. Fonseca · Todos os direitos reservados.</span>
           <span className="font-mono tracking-[0.18em] uppercase">
             Cabanas de Torres · Alenquer

@@ -52,8 +52,8 @@ export function Navbar() {
                 className={cn(
                   "group relative px-4 py-2 text-sm font-medium transition-colors duration-300",
                   isActive
-                    ? "text-[--color-text-primary]"
-                    : "text-[--color-text-muted] hover:text-[--color-text-primary]"
+                    ? "text-(color:--color-text-primary)"
+                    : "text-(color:--color-text-muted) hover:text-(color:--color-text-primary)"
                 )}
               >
                 {link.label}
@@ -74,9 +74,12 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <a
             href={`tel:+351${CONTACT.mobile}`}
-            className="inline-flex items-center gap-2 text-sm text-[--color-text-muted] hover:text-[--color-text-primary] transition-colors"
+            className="group inline-flex items-center gap-2 text-sm text-(color:--color-text-muted) hover:text-(color:--color-text-primary) transition-colors duration-300"
           >
-            <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <Phone
+              className="h-3.5 w-3.5 transition-transform duration-300 ease-[var(--ease-out)] group-hover:-rotate-12 group-hover:text-(color:--color-accent)"
+              strokeWidth={1.5}
+            />
             {CONTACT.mobileDisplay}
           </a>
           <LinkButton href="#contacto" size="md">
@@ -86,7 +89,7 @@ export function Navbar() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-[--color-border] text-[--color-text-primary]"
+          className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full border border-[--color-border] text-(color:--color-text-primary) transition-all duration-300 ease-[var(--ease-out)] hover:border-[--color-border-strong] hover:bg-[--color-bg-elevated] active:scale-90"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
         >
@@ -98,7 +101,7 @@ export function Navbar() {
       <div
         className={cn(
           "md:hidden overflow-hidden border-t border-[--color-border] bg-[--color-bg-base]/95 backdrop-blur-xl transition-[max-height,opacity] duration-500",
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <nav className="container-x py-6 flex flex-col gap-1">
@@ -107,7 +110,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="py-3 text-base text-[--color-text-primary] border-b border-[--color-border] last:border-b-0"
+              className="py-3 text-base text-(color:--color-text-primary) border-b border-[--color-border] last:border-b-0 transition-all duration-300 ease-[var(--ease-out)] hover:text-(color:--color-accent) hover:pl-2"
             >
               {link.label}
             </Link>

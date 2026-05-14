@@ -50,7 +50,7 @@ export function PortfolioCard({
         className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-transparent transition-colors duration-500 group-hover:ring-white/20 pointer-events-none"
       />
       <figcaption className="absolute inset-x-0 bottom-0 p-5 md:p-6 flex flex-col gap-1.5 transition-transform duration-500 ease-[var(--ease-out)] group-hover:-translate-y-1">
-        <div className="flex items-center gap-2 text-[10px] tracking-[0.18em] uppercase text-[--color-accent]">
+        <div className="flex items-center gap-2 text-[10px] tracking-[0.18em] uppercase text-(color:--color-accent)">
           <span>{project.tag}</span>
           <span className="h-px w-3 bg-[--color-accent]/60 transition-all duration-500 group-hover:w-6 group-hover:bg-[--color-accent]" />
           <span className="text-white/70">{project.year}</span>

@@ -22,7 +22,7 @@ export function PortfolioSection() {
   return (
     <section
       id="portefolio"
-      className="relative scroll-mt-24 py-24 md:py-32 bg-[--color-bg-surface] border-y border-[--color-border] overflow-hidden isolate"
+      className="relative scroll-mt-24 py-24 sm:py-28 md:py-36 bg-[--color-bg-surface] border-y border-[--color-border] overflow-hidden isolate"
     >
       {/* Metallic blue ambient glow — bottom-left */}
       <div
@@ -30,7 +30,7 @@ export function PortfolioSection() {
         className="pointer-events-none absolute -bottom-40 -left-32 h-[560px] w-[560px] rounded-full -z-10 opacity-55"
         style={{
           background:
-            "radial-gradient(circle, rgba(120,165,210,0.16), rgba(91,155,229,0.05) 38%, transparent 68%)",
+            "radial-gradient(circle, rgba(111,136,164,0.16), rgba(111,136,164,0.05) 38%, transparent 68%)",
           filter: "blur(40px)",
         }}
       />
@@ -40,26 +40,26 @@ export function PortfolioSection() {
         className="pointer-events-none absolute -top-24 -right-24 h-[440px] w-[440px] rounded-full -z-10 opacity-45"
         style={{
           background:
-            "radial-gradient(circle, rgba(120,165,210,0.14), rgba(91,155,229,0.04) 38%, transparent 68%)",
+            "radial-gradient(circle, rgba(111,136,164,0.14), rgba(111,136,164,0.04) 38%, transparent 68%)",
           filter: "blur(40px)",
         }}
       />
       <div className="container-x">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-10 sm:mb-14 md:mb-20">
           <SectionHeader
             eyebrow={PORTFOLIO_SECTION.eyebrow}
             title={
               <>
                 {PORTFOLIO_SECTION.title[0]}
                 <br />
-                <span className="text-[--color-text-muted] accent-serif">
+                <span className="text-(color:--color-text-secondary) accent-serif">
                   {PORTFOLIO_SECTION.title[1]}
                 </span>
               </>
             }
             lead={PORTFOLIO_SECTION.lead}
           />
-          <div className="hidden md:block text-right font-mono text-[11px] tracking-[0.18em] uppercase text-[--color-text-subtle]">
+          <div className="hidden md:block text-right font-mono text-[11px] tracking-[0.18em] uppercase text-(color:--color-text-subtle)">
             {PORTFOLIO.length} projetos
             <br />
             2021 — 2024

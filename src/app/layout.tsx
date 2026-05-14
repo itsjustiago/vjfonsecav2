@@ -93,7 +93,7 @@ export default function RootLayout({
       lang="pt-PT"
       className={`${dmSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col grain bg-[--color-bg-base] text-[--color-text-primary]">
+      <body className="min-h-full flex flex-col grain bg-[--color-bg-base] text-(color:--color-text-primary)">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
