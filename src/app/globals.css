@@ -127,6 +127,28 @@ body {
   60% { box-shadow: 0 0 0 1.5px var(--color-text-subtle) inset, 0 0 0 4px rgba(244, 244, 245, 0); }
   30% { box-shadow: 0 0 0 1.5px var(--color-text-subtle) inset, 0 0 0 2px rgba(244, 244, 245, 0.18); }
 }
+/* ----------------------------------------------------------------------
+   Hover fallback — always-visible affordances for browsers/devices that
+   don't fire :hover (touch screens, Windows tablet mode, some accessibility
+   tools that suppress hover). The animations stay; the end-state of every
+   important hover effect just becomes the default state.
+   ---------------------------------------------------------------------- */
+@media (hover: none) {
+  /* ProductRow: keep chevron + first-pill accent visible permanently */
+  .group .opacity-0.-translate-x-2 {
+    opacity: 0.6 !important;
+    transform: translateX(0) !important;
+  }
+  /* Footer + Navbar link underlines: always at half-strength */
+  .scale-x-0.origin-left {
+    transform: scaleX(0.4) !important;
+  }
+  /* DifferentiatorItem accent rail: small visible nub instead of 0-height */
+  .h-0.bg-\[--color-accent\] {
+    height: 1.25rem !important;
+  }
+}
+
 /* Marquee — infinite horizontal scroll */
 @keyframes marquee {
   from { transform: translateX(0); }
