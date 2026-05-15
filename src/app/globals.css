@@ -127,10 +127,6 @@ body {
   60% { box-shadow: 0 0 0 1.5px var(--color-text-subtle) inset, 0 0 0 4px rgba(244, 244, 245, 0); }
   30% { box-shadow: 0 0 0 1.5px var(--color-text-subtle) inset, 0 0 0 2px rgba(244, 244, 245, 0.18); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .eyebrow-pill::before { animation: none; }
-}
-
 /* Marquee — infinite horizontal scroll */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -144,9 +140,11 @@ body {
 .marquee-track:hover {
   animation-play-state: paused;
 }
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
+
+/* Note: reduced-motion media queries intentionally omitted. The animations on
+   this site are short opacity/transform transitions (no large movement, no
+   rotation > 10deg, no flashing) and are essential to the editorial feel.
+   Framer-motion is forced to ignore the OS preference via MotionProvider. */
 
 /* Hide scrollbar but keep functionality */
 .no-scrollbar::-webkit-scrollbar {
